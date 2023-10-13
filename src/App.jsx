@@ -1,10 +1,15 @@
 // import { useState } from 'react'
 import './App.css'
+import Cabecalho from './Components/Cabecalho'
+import Rodape from './Components/Rodape'
 
 export default function App() {
   
 
   return (
-    <div></div>
+    <>
+    <Cabecalho></Cabecalho>
+    <Rodape></Rodape>
+    </>
   )
 }
