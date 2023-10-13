@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import './App.css'
-import Cabecalho from './Components/Cabecalho'
+import Menu from './Components/Menu'
 import Rodape from './Components/Rodape'
 
 export default function App() {
@@ -8,8 +8,7 @@ export default function App() {
 
   return (
     <>
-    <Cabecalho></Cabecalho>
-    <Rodape></Rodape>
+    <Menu></Menu>
     </>
   )
 }
