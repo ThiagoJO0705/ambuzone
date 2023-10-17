@@ -1,10 +1,10 @@
 import './Cabecalho.css'
-import { LinkHTMLAttributes } from 'react'
-import {FaLocationDot} from 'react-icons'
-import {LuStethoscope} from 'react-icons'
-import {PiSirenDuotone} from 'react-icons'
-import {BsClipboardPlusFill} from 'react-icons'
-import {CgProfile} from 'react-icons'
+import {Link} from 'react-router-dom'
+import {FaLocationDot} from 'react-icons/fa'
+import {LuStethoscope} from 'react-icons/lu'
+import {PiSirenDuotone} from 'react-icons/pi'
+import {BsClipboardPlusFill} from 'react-icons/bs'
+import {CgProfile} from 'react-icons/cg'
 
 
 export default function Menu(){
