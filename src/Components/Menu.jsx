@@ -1,4 +1,4 @@
-// import './Menu.css'
+import style from './Menu.module.css'
 import {Link} from 'react-router-dom'
 import {BiSolidLocationPlus as IrIcon} from 'react-icons/bi'
 import {LuStethoscope as HospitaisIcon} from 'react-icons/lu'
@@ -10,13 +10,27 @@ import {CgProfile as PerfilIcon} from 'react-icons/cg'
 export default function Menu(){
     return(
         <nav>
-            <div className='menu-links'>
-                {/* <Link><IrIcon /></Link>
-                <Link><HospitaisIcon /></Link>
-                <Link><AmbulanciasIcon /></Link>
-                <Link><DiagnosticoIcon /></Link>
-                <Link><PerfilIcon /></Link>  */}
-                <p>Meu menu</p>
+            <div className={style.menuLinks}>
+                <Link to='/Ir'>
+                    <IrIcon/>
+                    <p>Ir</p>
+                </Link>
+                <Link to='/hospitais'>
+                    <HospitaisIcon/>
+                    <p>Hospitais</p>
+                </Link>
+                <Link to='/ambulancias'>
+                    <AmbulanciasIcon/>
+                    <p>Ambulâncias</p>
+                </Link>
+                <Link to='/diagnostico'>
+                    <DiagnosticoIcon/>
+                    <p>Diagnóstico</p>    
+                </Link>
+                <Link to='/perfil'>
+                    <PerfilIcon/>
+                    <p>Perfil</p>    
+                </Link> 
             </div>
         </nav>
     )
