@@ -1,22 +1,36 @@
-import './Cabecalho.css'
+import style from './Menu.module.css'
 import {Link} from 'react-router-dom'
-import {FaLocationDot} from 'react-icons/fa'
-import {LuStethoscope} from 'react-icons/lu'
-import {PiSirenDuotone} from 'react-icons/pi'
-import {BsClipboardPlusFill} from 'react-icons/bs'
-import {CgProfile} from 'react-icons/cg'
+import {BiSolidLocationPlus as IrIcon} from 'react-icons/bi'
+import {LuStethoscope as HospitaisIcon} from 'react-icons/lu'
+import {PiSirenDuotone as AmbulanciasIcon} from 'react-icons/pi'
+import {BsClipboardPlusFill as DiagnosticoIcon} from 'react-icons/bs'
+import {CgProfile as PerfilIcon} from 'react-icons/cg'
 
 
 export default function Menu(){
     return(
         <nav>
-            <div className='menu-links'>
-                <Link><FaLocationDot></FaLocationDot></Link>
-                <Link><LuStethoscope></LuStethoscope></Link>
-                <Link><PiSirenDuotone></PiSirenDuotone></Link>
-                <Link><BsClipboardPlusFill></BsClipboardPlusFill></Link>
-                <Link><CgProfile></CgProfile></Link>
-                <p>Meu menu</p>
+            <div className={style.menuLinks}>
+                <Link to='/Ir'>
+                    <IrIcon/>
+                    <p>Ir</p>
+                </Link>
+                <Link to='/hospitais'>
+                    <HospitaisIcon/>
+                    <p>Hospitais</p>
+                </Link>
+                <Link to='/ambulancias'>
+                    <AmbulanciasIcon/>
+                    <p>Ambulâncias</p>
+                </Link>
+                <Link to='/diagnostico'>
+                    <DiagnosticoIcon/>
+                    <p>Diagnóstico</p>    
+                </Link>
+                <Link to='/perfil'>
+                    <PerfilIcon/>
+                    <p>Perfil</p>    
+                </Link> 
             </div>
         </nav>
     )
