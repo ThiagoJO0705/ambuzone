@@ -9,7 +9,7 @@ import Ir from './Routes/Ir.jsx';
 import Hospitais from './Routes/Hospitais.jsx'
 import Ambulancias from './Routes/Ambulancias.jsx'
 import Diagnostico from './Routes/Diagnostico.jsx'
-import Perfil from './Routes/Perfil.jsx'
+import Perfil from './Routes/Perfil/Perfil.jsx'
 
 //BLOCO DAS ROTAS
 const router = createBrowserRouter([
