@@ -1,6 +1,6 @@
 main {
     background-color: darkblue;
-    height: 65rem;
+    height: 100vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr); /* Ajuste conforme necessário */
     grid-template-rows: auto 1fr; /* Ajuste conforme necessário */
