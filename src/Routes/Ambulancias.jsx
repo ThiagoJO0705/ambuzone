@@ -3,6 +3,7 @@ import {
   GoogleMap,
   InfoWindowF,
   MarkerF,
+  Circle,
   useLoadScript,
 } from "@react-google-maps/api";
 
@@ -311,16 +312,18 @@ export default function Ambulancias(){
         getUserLocation();
       }, []);
       
+      
+
     return(
         <Fragment>
       <div className="container">
-        <div style={{ height: "90vh", width: "100%" }}>
+        <div style={{ height: "100vh", width: "100%" }}>
           {isLoaded ? (
             <GoogleMap
               center={userLocation}
               zoom={15}
               onClick={() => setActiveMarker(null)}
-              mapContainerStyle={{ width: "100%", height: "90vh" }}
+              mapContainerStyle={{ width: "100%", height: "100vh" }}
               options={{
                 disableDefaultUI: true, // Isso remove os controles padrão
                 styles: mapStyles // Aplicar as estilizações
@@ -331,10 +334,11 @@ export default function Ambulancias(){
                   key={id}
                   position={userLocation}
                   onClick={() => handleActiveMarker(id)}
-                  // icon={{
-                  //   url:"https://t4.ftcdn.net/jpg/02/85/33/21/360_F_285332150_qyJdRevcRDaqVluZrUp8ee4H2KezU9CA.jpg",
-                  //   scaledSize: { width: 50, height: 50 }
-                  // }}
+                  icon={{
+                    url: "../../public/img/sua-localizacao-icon.png",
+                    scaledSize: { width: 40, height: 40 }
+                  }}
+                  animation={google.maps.Animation.DROP}
                 >
                   {activeMarker === id ? (
                     <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
@@ -345,6 +349,16 @@ export default function Ambulancias(){
                   ) : null}
                 </MarkerF>
               ))}
+                <Circle
+                  center={userLocation}
+                  radius={800}
+                  options={{
+                    fillColor: "blue",
+                    fillOpacity: 0.0025,
+                    strokeColor: "blue",
+                    strokeOpacity: 0.5,
+                  }}
+                />
             </GoogleMap>
           ) : null}
         </div>
