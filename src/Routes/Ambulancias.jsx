@@ -317,13 +317,13 @@ export default function Ambulancias(){
     return(
         <Fragment>
       <div className="container">
-        <div style={{ height: "90vh", width: "100%" }}>
+        <div style={{ height: "100vh", width: "100%" }}>
           {isLoaded ? (
             <GoogleMap
               center={userLocation}
               zoom={15}
               onClick={() => setActiveMarker(null)}
-              mapContainerStyle={{ width: "100%", height: "90vh" }}
+              mapContainerStyle={{ width: "100%", height: "100vh" }}
               options={{
                 disableDefaultUI: true, // Isso remove os controles padrão
                 styles: mapStyles // Aplicar as estilizações
