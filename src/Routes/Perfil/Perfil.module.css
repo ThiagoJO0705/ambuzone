@@ -5,6 +5,7 @@ main {
     grid-template-columns: repeat(12, 1fr); /* Ajuste conforme necessário */
     grid-template-rows: auto 1fr; /* Ajuste conforme necessário */
     gap: 10px; /* Ajuste conforme necessário */
+    overflow-y: hidden;
     & .configuracoes {
         font-size: 2rem;
         grid-column: 12;
@@ -61,7 +62,7 @@ main {
         grid-column: 1/13;
         grid-row: 2;
         background-color: white;
-        height: 40rem;
+        height: 80vh;
         width: 100%;
         border-radius: 5rem 5rem 0 0;
         & h1{
