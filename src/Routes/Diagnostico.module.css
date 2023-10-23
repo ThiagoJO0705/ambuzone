@@ -1,0 +1,76 @@
+body {
+    background-color: #020d3f;
+    color: white;
+    height: 100vh;
+    overflow-y: hidden;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap ;
+    margin: 20px;
+    padding-bottom: 30px;
+}
+
+.form {
+    margin-top: -100px;
+    background-color: #020D3F;
+    max-width: 350px;
+    height: 70vh;
+    border-radius: 50px;
+    border: 1.5px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    
+
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+}
+
+label {
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+.dados, .sintomas, .procedimento, .obs, .risco {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.risco label{
+    width: 300px;
+}
+
+.dadosinput {
+    width: 220px;
+    height: 30px;
+}
+
+.sintomasinput, .procedimentoinput, .obsinput {
+    width: 220px;
+    height: 50px;
+}
+
+.naourgente, .poucourgente, .urgente, .muitourgente, .emergencia{
+    width: 30px;
+}
+
+.naourgente {
+    background-color: blue;
+}
+
+.poucourgente {
+    color: aqua;
+}

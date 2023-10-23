@@ -1,5 +1,5 @@
 main {
-    background-color: darkblue;
+    background-color: #020D3F;
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr); /* Ajuste conforme necessário */
