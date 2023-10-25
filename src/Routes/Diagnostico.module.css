@@ -42,6 +42,10 @@ label {
 
 }
 
+span {
+    font-size: 22px;
+}
+
 .dados, .sintomas, .procedimento, .obs, .risco {
     display: flex;
     justify-content: center;
@@ -67,10 +71,28 @@ label {
     width: 30px;
 }
 
-.naourgente {
-    background-color: blue;
+/* Estilize o input radio ocultando-o e definindo estilos para o rótulo */
+/* Estilize o input radio ocultando-o */
+input[type="radio"] {
+    display: none;
 }
 
-.poucourgente {
-    color: aqua;
+/* Estilize o rótulo antes de o usuário clicar no input de rádio */
+input[type="radio"] + label {
+    color: #000;
+    background-color: #ccc;
+    padding: 5px 10px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ff00bf;
+    border-radius: 50%;
 }
+
+/* Estilize o input de rádio quando estiver marcado (selecionado) */
+.naourgente:checked + label {
+    background-color: rgb(25, 0, 255);
+    padding: 2px;
+    color: #fff;
+}
+
+
