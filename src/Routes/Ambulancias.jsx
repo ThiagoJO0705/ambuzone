@@ -297,14 +297,6 @@ export default function Ambulancias(){
               };
     
               setUserLocation(userCoords);
-    
-              // // Atualize as coordenadas do marcador para as coordenadas do usuário
-              // const updatedMarkers = markers.map((marker) => ({
-              //   ...marker,
-              //   position: userCoords,
-              // }));
-    
-              // setMarkers(updatedMarkers);
             });
           }
         };

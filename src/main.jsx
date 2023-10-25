@@ -6,7 +6,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Erro404 from './Routes/Erro404.jsx';
 import Ir from './Routes/Ir.jsx';
-import Hospitais from './Routes/Hospitais.jsx'
+import Hospitais from './Routes/Hospitais/Hospitais.jsx'
 import Ambulancias from './Routes/Ambulancias.jsx'
 import Diagnostico from './Routes/Diagnostico.jsx'
 import Perfil from './Routes/Perfil/Perfil.jsx'
