@@ -25,6 +25,8 @@ body {
     border: 1.5px solid white;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     padding-top: 20px;
     
 
@@ -79,20 +81,45 @@ input[type="radio"] {
 
 /* Estilize o rótulo antes de o usuário clicar no input de rádio */
 input[type="radio"] + label {
-    color: #000;
-    background-color: #ccc;
+    color: #fff;
+    background-color: #020d3f;
     padding: 5px 10px;
     width: 40px;
     height: 40px;
-    border: 1px solid #ff00bf;
+    border: 1px solid #ffffff;
     border-radius: 50%;
+    margin-left: 5px;
 }
 
 /* Estilize o input de rádio quando estiver marcado (selecionado) */
+
+
 .naourgente:checked + label {
-    background-color: rgb(25, 0, 255);
-    padding: 2px;
-    color: #fff;
+    background-color: blue;
 }
 
+.poucourgente:checked + label {
+    background-color: green;
+}
 
+.urgente:checked + label {
+    background-color: yellow;
+}
+
+.muitourgente:checked + label {
+    background-color: orange;
+}
+
+.emergencia:checked + label {
+    background-color: red;
+}
+
+button {
+    width: 160px;
+    height: 30px;
+    border-radius: 50px;
+    outline: none;
+    background-color: #3a3a3a;
+    border: 1px solid white;
+    color: #fff;
+}
