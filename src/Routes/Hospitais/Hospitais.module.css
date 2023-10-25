@@ -1,8 +1,62 @@
 .container{
     background-color: darkblue;
-    height: 100vh;
+    /* height: 80vh; */
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto 1fr;
     gap: 10px;
+    color: white;
+    margin-bottom: 4.5rem;
+}
+.cabecalho{
+    grid-column: 1/13;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    & h1{
+        font-size: 1.7rem;
+    }
+    & p{
+        font-size: 1.7rem;
+    }
+    /* & .titulo{
+        position: relative;
+        top: 1rem;
+    } */
+    & .raioDeBusca{
+        display: flex;
+        & p{
+            margin: 0.5rem;
+        }
+    }
+    
+} 
+          
+ul{
+    grid-column: 1/13;
+    grid-row: 2;
+    border-radius: 2rem 2rem 0 0;
+    background-color: white;
+    color: black;
+    
+    & li{
+        margin: 1rem;
+    }
+    & strong{
+        font-size: 1.5rem;
+    }
+    & p{
+        font-size: 1.3rem;
+    }
+    & button{
+        background-color: darkblue;
+        color: white;
+        border-radius: 1rem;
+        width: 10rem;
+    }
+    & hr{
+        width: 100%;
+        margin: 0.5rem 0;
+    }
 }

@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from "react";
 import {FaLocationDot as LocalizacaoIcon} from 'react-icons/fa6'
+import {AiOutlinePlus as AumentarIcon} from 'react-icons/ai'
+import {AiOutlineMinus as DiminuirIcon} from 'react-icons/ai'
 import haversine from 'haversine-distance';
 import styles from './Hospitais.module.css'
 
 export default function Hospitais() {
 const [userLocation, setUserLocation] = useState(null);
+const [raioBusca, setRaioBusca] = useState(1000); // Valor padrão de 5000 metros
+
+  // Função para aumentar o raio de busca
+  const aumentarRaio = () => {
+    if (raioBusca < 5000){
+    setRaioBusca(raioBusca + 1000); // Aumenta em 1000 metros (ou ajuste conforme necessário)
+    }
+  };
+
+  // Função para diminuir o raio de busca
+  const diminuirRaio = () => {
+    if (raioBusca > 1000) {
+      setRaioBusca(raioBusca - 1000); // Diminui em 1000 metros (ou ajuste conforme necessário)
+    }
+  }
+
 useEffect(() => {
   // Função para obter a localização do usuário
   const getUserLocation = () => {
@@ -39,7 +57,7 @@ useEffect(() => {
       service.nearbySearch(
         {
           location: userLocation,
-          radius: 1000, //raio em metros para busca
+          radius: raioBusca, //raio em metros para busca
           type: "hospital", // Tipo de lugar a ser pesquisado
         },
         (results, status) => {
@@ -72,7 +90,7 @@ useEffect(() => {
     };
 
     document.head.appendChild(script);
-  }, [userLocation]);
+  }, [userLocation, raioBusca]);
 
   return (
     <div className={styles.container}>
@@ -81,14 +99,24 @@ useEffect(() => {
       <p><LocalizacaoIcon/> São Paulo</p>
       <h1>Hospitais Próximos</h1>
       </div>
-      <div className={styles.raioDeBusca}></div>
+      <div className={styles.raioDeBusca}>
+      <p>Raio de busca: {raioBusca+'m'}</p>
+      <p><AumentarIcon onClick={aumentarRaio}/></p>
+      <p><DiminuirIcon onClick={diminuirRaio}/></p>
+      </div>
       </div>
       <ul>
+        {/* <li>
+          <b>Hospital mais Próximo</b>
+          
+        </li> */}
         {hospitais.map((hospital) => (
           <li key={hospital.place_id}>
-            <strong>{hospital.name}</strong>
+            <strong>{hospital.name} | <LocalizacaoIcon/>{hospital.distance}</strong>
             <p>{hospital.vicinity}</p>
-            <p>{hospital.distance}</p>
+            {/* <p>{hospital.distance}</p> */}
+            <button>Definir Destino</button>
+            <hr />
           </li>
         ))}
       </ul>
