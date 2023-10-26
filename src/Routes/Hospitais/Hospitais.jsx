@@ -4,6 +4,7 @@ import {AiOutlinePlus as AumentarIcon} from 'react-icons/ai'
 import {AiOutlineMinus as DiminuirIcon} from 'react-icons/ai'
 import haversine from 'haversine-distance';
 import styles from './Hospitais.module.css'
+import { Link } from "react-router-dom";
 
 export default function Hospitais() {
 const [userLocation, setUserLocation] = useState(null);
@@ -92,6 +93,14 @@ useEffect(() => {
     document.head.appendChild(script);
   }, [userLocation, raioBusca]);
 
+  // const hospitalDados = (index)=>{
+  //   const nome = hospitais[index].name
+  //   const hospitalSelecionadoCoords = {
+  //     lat: hospital.geometry.location.lat(),
+  //     lng: hospital.geometry.location.lng(),
+  //   };
+  // }
+
   return (
     <div className={styles.container}>
       <div className={styles.cabecalho}>
@@ -106,16 +115,11 @@ useEffect(() => {
       </div>
       </div>
       <ul>
-        {/* <li>
-          <b>Hospital mais Próximo</b>
-          
-        </li> */}
         {hospitais.map((hospital) => (
           <li key={hospital.place_id}>
             <strong>{hospital.name} | <LocalizacaoIcon/>{hospital.distance}</strong>
             <p>{hospital.vicinity}</p>
-            {/* <p>{hospital.distance}</p> */}
-            <button>Definir Destino</button>
+            <Link to='/Ir'><button>Definir Destino</button></Link>
             <hr />
           </li>
         ))}
