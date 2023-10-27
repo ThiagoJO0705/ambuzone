@@ -1,12 +1,16 @@
-import {useState, useEffect } from "react";
+import {useState, useEffect, useContext, useMemo, useCallback } from "react";
+import { DadosParaRotaContext } from "../Context/DadosParaRota";
 import {
   GoogleMap,
   InfoWindowF,
   MarkerF,
   useLoadScript,
+  DirectionsService,
+  DirectionsRenderer,
+  InfoBox
 } from "@react-google-maps/api";
  
- 
+
 const mapStyles = [
     {
       featureType: 'all',
@@ -271,7 +275,22 @@ const mapStyles = [
  
 export default function Ir(){
     console.log('Renderizando aba Ir')
+    const {dados} = useContext(DadosParaRotaContext)
+    const hospitalDefinidoCoords = {lat: dados.lat,
+                                    lng: dados.lng}
+    console.log(dados)
     const [userLocation, setUserLocation] = useState(null);
+    const [mostrarMensagem, setMostrarMensagem] = useState(true);
+    // const [response, setResponse] = useState(null)
+    if (dados == {
+      nome: 'nome',
+      lat: 'lat',
+      lng : 'lng'
+  }){
+    setMostrarMensagem(false)
+  }
+    const [rota, setRota] = useState(null);
+
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
       });
@@ -284,6 +303,56 @@ export default function Ir(){
         }
         setActiveMarker(marker);
       };
+
+      // const directionsServiceOptions = ()=>{
+      //   // Verifique se as coordenadas de origem (userLocation) e destino (hospitalDefinidoCoords) estão definidas.
+      //   if (userLocation && hospitalDefinidoCoords != {lat: 'lat', lng:'lng'}) {
+      //     useMemo<google.maps.DirectionsRequest>( () => {
+      //       return{
+      //       origin: userLocation,
+      //       destination: hospitalDefinidoCoords,
+      //       travelMode: 'DRIVING',
+      //     }}, [userLocation, hospitalDefinidoCoords]);}}
+
+      //     const directionsCallback = useCallback((res) => {
+      //       if (res !== null && res.status === "OK") {
+      //         setResponse(res);
+      //       } else {
+      //         console.log(res);
+      //       }
+      //     }, []);
+
+      //     const directionsRendererOptions = useMemo<any>(() => {
+      //       return {
+      //         directions: response,
+      //       };
+      //     }, [response]);
+
+      // Função para calcular a rota
+  const calcularRota = () => {
+    // Verifique se as coordenadas de origem (userLocation) e destino (hospitalDefinidoCoords) estão definidas.
+    if (userLocation && hospitalDefinidoCoords) {
+      setMostrarMensagem(false); // Feche a mensagem
+      setRota(null); // Limpe a rota existente
+      setResponse(null); // Limpe a resposta existente
+
+      // Configuração das opções do serviço de direções
+      const directionsServiceOptions = {
+        origin: userLocation,
+        destination: hospitalDefinidoCoords,
+        travelMode: "DRIVING"
+      };
+
+      // Solicitar a rota ao serviço de direções
+      directionsService.route(directionsServiceOptions, (result, status) => {
+        if (status === "OK") {
+          setRota(result);
+        } else {
+          console.error("Houve um erro ao calcular a rota:", status);
+        }
+      });
+    }
+  };
    
       useEffect(() => {
         // Função para obter a localização do usuário
@@ -339,9 +408,36 @@ export default function Ir(){
                   ) : null}
                 </MarkerF>
               ))}
-            </GoogleMap>
+              {userLocation && hospitalDefinidoCoords != {lat:'lat', lng:'lng'} && (
+            <DirectionsService
+              options={directionsServiceOptions}
+              callback={directionsCallback}
+            />
+          )}
+
+          {response && directionsRendererOptions && (
+            <DirectionsRenderer options={directionsRendererOptions} />
+          )}
+          {mostrarMensagem && (
+          <InfoBox onCloseClick={()=>setMostrarMensagem(false)}>
+            <div className="mensagem-container">
+              <p>Deseja gerar uma rota para {dados.name}?</p>
+              <button onClick={calcularRota}>Gerar Rota</button>
+            </div>
+          </InfoBox>
+          )}  
+          </GoogleMap>
           ) : null}
         </div>
+        {mostrarMensagem && rota && (
+  <div className="mensagem-container">
+    <p>Deseja gerar uma rota para {dados.name}?</p>
+    <button onClick={calcularRota}>Gerar Rota</button>
+    <button onClick={() => setMostrarMensagem(false)}>Fechar</button>
+  </div>
+)}
+
+<DirectionsRenderer directions={rota} />
       </div>
     </>
   );

@@ -2,14 +2,15 @@
 // import './App.css'
 import { Outlet } from 'react-router-dom'
 import Menu from './Components/Menu/Menu'
-// import Rodape from './Components/Rodape'
-
+import { DadosParaRotaProvider } from './Context/DadosParaRota'
 export default function App() {
   
 
   return (
     <>
-    <Outlet/>
+    <DadosParaRotaProvider>
+      <Outlet/>
+    </DadosParaRotaProvider>
     <Menu></Menu>
     </>
   )
