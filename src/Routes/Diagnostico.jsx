@@ -91,9 +91,7 @@
           } else {
             setSpanErroProcedimentoVisible(false);
           }
-        } else {
-          
-      }
+        }
     }
 
       return(
