@@ -1,0 +1,64 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-template-rows: repeat(auto, 100px);
+}
+
+.boxazul{
+    grid-row: 1/1;
+    height: 150px;
+}
+
+.boxbranca {
+    grid-row: 2/10;
+    background-color: white;
+    grid-column: 1/12;
+    color: rgb(255, 255, 255);
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;    
+    height: 450px;
+}
+
+.boxazul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+}
+
+.ocorrencias,
+.ambdisponiveis,
+.ambativas,
+.ambocorrencias {
+    background-color: #020d3f;
+    max-width: 230px;
+    width: 100%;
+    min-height: 80px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 9px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ocorrencias p,
+.ambdisponiveis p,
+.ambativas p,
+.ambocorrencias p {
+    font-size: 15px;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    width: 150px;
+    height: 20px;
+}
