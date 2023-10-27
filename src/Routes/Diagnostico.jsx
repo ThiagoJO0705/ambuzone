@@ -99,7 +99,9 @@
       return(
           <>
               <section className={style.container}>
-                  <div className={style.logo}></div>
+                  <div className={style.logo}>
+                    <img src="../../public/img/ambuzonelogo.png" alt="" />
+                  </div>
                   <div>
                       <form onSubmit={handleSubmit} className={style.form}>
                           <div className={style.dados}>
