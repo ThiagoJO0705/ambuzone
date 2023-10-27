@@ -1,13 +1,13 @@
-import { Fragment, useState, useEffect } from "react";
+import {useState, useEffect } from "react";
 import {
   GoogleMap,
   InfoWindowF,
   MarkerF,
-  Circle,
   useLoadScript,
+  Circle,
 } from "@react-google-maps/api";
-
-
+ 
+ 
 const mapStyles = [
     {
       featureType: 'all',
@@ -262,30 +262,30 @@ const mapStyles = [
       ],
     },
   ];
-
+ 
     const markers = [
         {
           id: 1,
           name: "Sua Localização",
         }
       ];
-
+ 
 export default function Ambulancias(){
-    console.log('Renderizando aba Ambulâncias')
+    console.log('Renderizando aba Ir')
     const [userLocation, setUserLocation] = useState(null);
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
       });
-    
+   
       const [activeMarker, setActiveMarker] = useState(null);
-    
+   
       const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
           return;
         }
         setActiveMarker(marker);
       };
-    
+   
       useEffect(() => {
         // Função para obter a localização do usuário
         const getUserLocation = () => {
@@ -295,27 +295,18 @@ export default function Ambulancias(){
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
               };
-    
+   
               setUserLocation(userCoords);
-    
-              // Atualize as coordenadas do marcador para as coordenadas do usuário
-              const updatedMarkers = markers.map((marker) => ({
-                ...marker,
-                position: userCoords,
-              }));
-    
-              setMarkers(updatedMarkers);
             });
           }
         };
-    
+   
         getUserLocation();
       }, []);
-      
-      
-
+     
+ 
     return(
-        <Fragment>
+        <>
       <div className="container">
         <div style={{ height: "100vh", width: "100%" }}>
           {isLoaded ? (
@@ -347,22 +338,28 @@ export default function Ambulancias(){
                       </div>
                     </InfoWindowF>
                   ) : null}
+                  <Circle
+              center = {userLocation}
+              radius={800}
+              options={{
+                fillColor: "blue",
+                fillOpacity: 0.25,
+                strokeColor: "darkblue",
+                strokeOpacity: 0.5,
+                visible: true,
+                draggable: false,
+                editable: false,
+                zIndex: 10
+              }}
+              />
                 </MarkerF>
+
               ))}
-                <Circle
-                  center={userLocation}
-                  radius={800}
-                  options={{
-                    fillColor: "blue",
-                    fillOpacity: 0.0025,
-                    strokeColor: "blue",
-                    strokeOpacity: 0.5,
-                  }}
-                />
+              
             </GoogleMap>
           ) : null}
         </div>
       </div>
-    </Fragment>
+    </>
   );
 }
