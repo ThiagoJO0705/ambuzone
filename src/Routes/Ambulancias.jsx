@@ -285,7 +285,7 @@ export default function Ambulancias(){
         }
         setActiveMarker(marker);
       };
-   
+
       useEffect(() => {
         // Função para obter a localização do usuário
         const getUserLocation = () => {
@@ -329,7 +329,7 @@ export default function Ambulancias(){
                     url: "../../public/img/sua-localizacao-icon.png",
                     scaledSize: { width: 40, height: 40 }
                   }}
-                  animation={google.maps.Animation.DROP}
+                  animation={window.google.maps.Animation.DROP}
                 >
                   {activeMarker === id ? (
                     <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
@@ -353,7 +353,6 @@ export default function Ambulancias(){
               }}
               />
                 </MarkerF>
-
               ))}
               
             </GoogleMap>

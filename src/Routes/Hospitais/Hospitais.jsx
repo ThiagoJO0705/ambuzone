@@ -112,7 +112,7 @@ useEffect(() => {
           <li key={hospital.place_id}>
             <strong>{hospital.name} | <LocalizacaoIcon/>{hospital.distance}</strong>
             <p>{hospital.vicinity}</p>
-            <Link><button>Definir Destino</button></Link>
+            <Link to='/'><button>Definir Destino</button></Link>
             <hr />
           </li>
         ))}
