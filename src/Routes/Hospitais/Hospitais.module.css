@@ -1,5 +1,5 @@
 .container{
-    background-color: darkblue;
+    background-color: #020D3F;
     /* height: 80vh; */
     display: grid;
     grid-template-columns: repeat(12, 1fr);
