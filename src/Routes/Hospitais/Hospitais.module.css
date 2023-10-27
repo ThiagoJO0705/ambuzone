@@ -1,3 +1,7 @@
+html{
+    overflow-y: scroll;
+}
+
 .container{
     background-color: #020D3F;
     /* height: 80vh; */
@@ -53,10 +57,12 @@ ul{
         font-size: 1.3rem;
     }
     & button{
-        background-color: darkblue;
+        background-color: #020D3F;
         color: white;
-        border-radius: 1rem;
+        border-radius: 5rem;
         width: 10rem;
+        font-size: 1.2rem;
+        box-shadow: 3px 3px black;
     }
     & hr{
         width: 100%;
