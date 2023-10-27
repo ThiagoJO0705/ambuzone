@@ -11,7 +11,7 @@ export default function Menu(){
     return(
         <nav>
             <div className={style.menuLinks}>
-                <Link to='/ir'>
+                <Link to='/'>
                     <IrIcon/>
                     <p>Ir</p>
                 </Link>

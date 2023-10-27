@@ -15,7 +15,7 @@ import Perfil from './Routes/Perfil/Perfil.jsx'
 const router = createBrowserRouter([
   {path:"/",element: <App/>,errorElement:<Erro404/>,
    children:[
-    {path:"/ir", element:<Ir/>},
+    {path:"/", element:<Ir/>},
     {path:"/hospitais",element:<Hospitais/>},
     {path:"/ambulancias", element:<Ambulancias/>},
     {path:"/diagnostico", element:<Diagnostico/>},
