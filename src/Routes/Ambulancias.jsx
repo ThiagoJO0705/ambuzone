@@ -285,7 +285,7 @@ export default function Ambulancias(){
         }
         setActiveMarker(marker);
       };
-   
+
       useEffect(() => {
         // Função para obter a localização do usuário
         const getUserLocation = () => {
@@ -353,7 +353,6 @@ export default function Ambulancias(){
               }}
               />
                 </MarkerF>
-
               ))}
               
             </GoogleMap>
