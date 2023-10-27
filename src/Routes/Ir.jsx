@@ -3,11 +3,10 @@ import {
   GoogleMap,
   InfoWindowF,
   MarkerF,
-  Circle,
   useLoadScript,
 } from "@react-google-maps/api";
-
-
+ 
+ 
 const mapStyles = [
     {
       featureType: 'all',
@@ -262,30 +261,30 @@ const mapStyles = [
       ],
     },
   ];
-
+ 
     const markers = [
         {
           id: 1,
           name: "Sua Localização",
         }
       ];
-
+ 
 export default function Ir(){
     console.log('Renderizando aba Ir')
     const [userLocation, setUserLocation] = useState(null);
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
       });
-    
+   
       const [activeMarker, setActiveMarker] = useState(null);
-    
+   
       const handleActiveMarker = (marker) => {
         if (marker === activeMarker) {
           return;
         }
         setActiveMarker(marker);
       };
-    
+   
       useEffect(() => {
         // Função para obter a localização do usuário
         const getUserLocation = () => {
@@ -295,17 +294,16 @@ export default function Ir(){
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
               };
-    
+   
               setUserLocation(userCoords);
             });
           }
         };
-    
+   
         getUserLocation();
       }, []);
-      
-      
-
+     
+ 
     return(
         <>
       <div className="container">
@@ -341,16 +339,6 @@ export default function Ir(){
                   ) : null}
                 </MarkerF>
               ))}
-                <Circle
-                  center={userLocation}
-                  radius={800}
-                  options={{
-                    fillColor: "blue",
-                    fillOpacity: 0.0025,
-                    strokeColor: "blue",
-                    strokeOpacity: 0.5,
-                  }}
-                />
             </GoogleMap>
           ) : null}
         </div>
