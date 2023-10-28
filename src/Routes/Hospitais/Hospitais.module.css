@@ -1,13 +1,18 @@
+html{
+    overflow-y: scroll;
+}
+
 .container{
-    background-color: darkblue;
+    background-color: #020D3F;
     /* height: 80vh; */
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto 1fr;
     gap: 10px;
     color: white;
-    margin-bottom: 7rem;
+    margin-bottom: 4.5rem;
     overflow-y: auto;
+    max-height: 100vh;
 }
 .cabecalho{
     grid-column: 1/13;
@@ -40,7 +45,7 @@ ul{
     border-radius: 2rem 2rem 0 0;
     background-color: white;
     color: black;
-    /* margin-bottom: 4.5rem; */
+    overflow-y: auto;
     
     & li{
         margin: 1rem;
@@ -52,10 +57,12 @@ ul{
         font-size: 1.3rem;
     }
     & button{
-        background-color: darkblue;
+        background-color: #020D3F;
         color: white;
-        border-radius: 1rem;
+        border-radius: 5rem;
         width: 10rem;
+        font-size: 1.2rem;
+        box-shadow: 3px 3px black;
     }
     & hr{
         width: 100%;

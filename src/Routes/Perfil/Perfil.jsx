@@ -8,12 +8,15 @@ import {BiSolidMessageAdd as MinhasConversasIcon} from 'react-icons/bi'
 import {AiFillQuestionCircle as PerguntasFrequentesIcon} from 'react-icons/ai'
 import {TbArrowBadgeRightFilled as SetaIcon} from 'react-icons/tb'
 
+
 export default function Perfil(){
     return(
         <main>
             <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
             <div className={style.conta}>
-                <div className={style.logo}></div>
+                <div className={style.logo}>
+                    <img src="../../../public/img/ambuzonelogo.png" alt="" />
+                </div>
                 <hr/>
                 <div className={style.informacoesPessoais}>
                     <div className={style.fotoPerfil}><DadosPessoaisIcon/></div>
@@ -29,7 +32,7 @@ export default function Perfil(){
                             <DadosPessoaisIcon/>
                             <p>Dados Pessoais</p>
                         </div>
-                        <Link><SetaIcon/></Link>
+                        <Link className='seta'><SetaIcon/></Link>
                     </div>
                     <hr />
                 </div>
@@ -39,7 +42,7 @@ export default function Perfil(){
                             <NotificacoesIcon/>
                             <p>Notificações</p>
                         </div>
-                        <Link><SetaIcon/></Link>
+                        <Link className='seta'><SetaIcon/></Link>
                     </div>
                     <hr />
                 </div>
@@ -49,7 +52,7 @@ export default function Perfil(){
                             <MinhasOcorrenciasIcon/>
                             <p>Minhas Ocorrências</p>
                         </div>
-                        <Link><SetaIcon/></Link>
+                        <Link className='seta'><SetaIcon/></Link>
                     </div>
                     <hr />
                 </div>
@@ -59,7 +62,7 @@ export default function Perfil(){
                             <MinhasConversasIcon/>
                             <p>Minhas Conversas</p>
                         </div>
-                        <Link><SetaIcon/></Link>
+                        <Link className='seta'><SetaIcon/></Link>
                     </div>
                     <hr />
                 </div>
@@ -70,7 +73,7 @@ export default function Perfil(){
                             <PerguntasFrequentesIcon/>
                             <p>Dados Pessoais</p>
                         </div>
-                        <Link><SetaIcon/></Link>
+                        <Link className='seta'><SetaIcon/></Link>
                     </div>
                     <hr />
                 </div>
