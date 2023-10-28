@@ -1,7 +1,5 @@
 import {useState, useEffect, useContext} from "react";
 import {FaLocationDot as LocalizacaoIcon} from 'react-icons/fa6'
-import {AiOutlinePlus as AumentarIcon} from 'react-icons/ai'
-import {AiOutlineMinus as DiminuirIcon} from 'react-icons/ai'
 import haversine from 'haversine-distance';
 import styles from './Hospitais.module.css'
 import {Link} from "react-router-dom";
@@ -9,22 +7,8 @@ import { DadosParaRotaContext } from "../../Context/DadosParaRota";
 
 export default function Hospitais() {
 const [userLocation, setUserLocation] = useState(null);
-// const [raioBusca, setRaioBusca] = useState(1000); // Valor padrão de 1000 metros
 const {toggleDados} = useContext(DadosParaRotaContext)
  
-// // Função para aumentar o raio de busca
-//   const aumentarRaio = () => {
-//     if (raioBusca < 5000){
-//     setRaioBusca(raioBusca + 1000); // Aumenta em 1000 metros
-//     }
-//   };
- 
-  // Função para diminuir o raio de busca
-  // const diminuirRaio = () => {
-  //   if (raioBusca > 1000) {
-  //     setRaioBusca(raioBusca - 1000); // Diminui em 1000 metros
-  //   }
-  // }
  
 useEffect(() => {
   // Função para obter a localização do usuário
@@ -60,7 +44,7 @@ useEffect(() => {
       service.nearbySearch(
         {
           location: userLocation,
-          radius: 2000, // radius: raioBusca, //raio em metros para busca
+          radius: 5000, //raio em metros para busca
           type: "hospital", // Tipo de lugar a ser pesquisado
         },
         (results, status) => {
@@ -93,8 +77,9 @@ useEffect(() => {
     };
  
     document.head.appendChild(script);
-  }, [userLocation]); //, raioBusca
+  }, [userLocation]);
  
+  hospitais.sort((a, b) => a.distance - b.distance);
  
   return (
     <div className={styles.container}>
@@ -104,9 +89,6 @@ useEffect(() => {
       <h1>Hospitais Próximos</h1>
       </div>
       <div className={styles.raioDeBusca}>
-      {/* <p>Raio de busca: {raioBusca+'m'}</p> */}
-      {/* <p><AumentarIcon onClick={aumentarRaio}/></p> */}
-      {/* <p><DiminuirIcon onClick={diminuirRaio}/></p> */}
       </div>
       </div>
       <ul>
