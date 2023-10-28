@@ -317,15 +317,13 @@ export default function Ir(){
       }, []);
      
       async function calculateRoute() {
-        const directionsService = new google.maps.DirectionsService()
+        const directionsService = new window.google.maps.DirectionsService()
         const results = await directionsService.route({
           origin: userLocation,
           destination: hospitalDefinidoCoords,
           travelMode: google.maps.TravelMode.DRIVING,
         })
         setDirectionsResponse(results)
-        setDistance(results.routes[0].legs[0].distance.text)
-        setDuration(results.routes[0].legs[0].duration.text)
       }
       
     return(
@@ -349,7 +347,7 @@ export default function Ir(){
                   position={userLocation}
                   onClick={() => handleActiveMarker(id)}
                   icon={{
-                    url: "../../public/img/sua-localizacao-icon.png",
+                    url: "../img/sua-localizacao-icon.png",
                     scaledSize: { width: 40, height: 40 }
                   }}
                   animation={window.google.maps.Animation.DROP}

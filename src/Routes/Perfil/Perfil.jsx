@@ -17,7 +17,7 @@ export default function Perfil(){
             <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
             <div className={style.conta}>
                 <div className={style.logo}>
-                    <img src="../../../public/img/ambuzonelogo.png" alt="" />
+                    <img src="../../assets/ambuzonelogo.png" alt="" />
                 </div>
                 <hr/>
                 <div className={style.informacoesPessoais}>
