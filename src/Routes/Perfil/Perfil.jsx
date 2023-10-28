@@ -22,7 +22,7 @@ export default function Perfil(){
                 <hr/>
                 <div className={style.informacoesPessoais}>
                     <div className={style.fotoPerfil}><DadosPessoaisIcon/></div>
-                    <p className={style.nomeUsuario}>Nome Aleatório Para Teste</p>
+                    <p className={style.nomeUsuario}>Fulano da Silva</p>
                     <p className={style.emailUsuario}>emailgenerico@gmail.com</p>
                 </div>
             </div>
