@@ -1,12 +1,14 @@
-import {useState, useEffect } from "react";
+import {useState, useEffect, useContext, useMemo, useCallback } from "react";
+import { DadosParaRotaContext } from "../Context/DadosParaRota";
 import {
   GoogleMap,
   InfoWindowF,
   MarkerF,
   useLoadScript,
+  DirectionsRenderer,
 } from "@react-google-maps/api";
  
- 
+
 const mapStyles = [
     {
       featureType: 'all',
@@ -271,7 +273,16 @@ const mapStyles = [
  
 export default function Ir(){
     console.log('Renderizando aba Ir')
+    const {dados} = useContext(DadosParaRotaContext)
+    const [directionsResponse, setDirectionsResponse] = useState(null)
+    const hospitalDefinidoCoords = {lat: dados.lat,
+                                    lng: dados.lng}
+    console.log(dados)
+    // const [directions, setDirections] = useState(null);
+    // const [showOverlay, setShowOverlay] = useState(false);
     const [userLocation, setUserLocation] = useState(null);
+    // const [response, setResponse] =
+    // useState<window.google.maps.DistanceMatrixResponse | null>(null);
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_MAP_API_KEY,
       });
@@ -284,7 +295,8 @@ export default function Ir(){
         }
         setActiveMarker(marker);
       };
-   
+
+  
       useEffect(() => {
         // Função para obter a localização do usuário
         const getUserLocation = () => {
@@ -303,7 +315,18 @@ export default function Ir(){
         getUserLocation();
       }, []);
      
- 
+      async function calculateRoute() {
+        const directionsService = new google.maps.DirectionsService()
+        const results = await directionsService.route({
+          origin: userLocation,
+          destination: hospitalDefinidoCoords,
+          travelMode: google.maps.TravelMode.DRIVING,
+        })
+        setDirectionsResponse(results)
+        setDistance(results.routes[0].legs[0].distance.text)
+        setDuration(results.routes[0].legs[0].duration.text)
+      }
+      
     return(
         <>
       <div className="container">
@@ -334,12 +357,16 @@ export default function Ir(){
                     <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
                       <div>
                         <p>{name}</p>
+                        <button onClick={calculateRoute}>Gerar Rota{dados.nome}</button>
                       </div>
                     </InfoWindowF>
                   ) : null}
                 </MarkerF>
               ))}
-            </GoogleMap>
+              {directionsResponse && (
+            <DirectionsRenderer directions={directionsResponse} />
+          )}
+          </GoogleMap>
           ) : null}
         </div>
       </div>
