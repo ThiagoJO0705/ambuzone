@@ -31,7 +31,10 @@
 
 }
 
-
+.logo{
+    position: relative;
+    left: 10rem;
+}
 
 .ocorrencias,
 .ambdisponiveis,

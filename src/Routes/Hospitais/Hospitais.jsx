@@ -57,7 +57,7 @@ useEffect(() => {
               const distance = haversine(userLocation, hospitalCoords);
  
               // Condicionando a unidade de medida
-              const formattedDistance = distance+300 >= 1000 ? `${((distance+300) / 1000).toFixed(2)} km` : `${Math.round(distance+300)} m`;
+              const formattedDistance = distance+300
      
               // Adicionando a distância ao objeto do hospital
               return {
@@ -79,7 +79,7 @@ useEffect(() => {
     document.head.appendChild(script);
   }, [userLocation]);
  
-  hospitais.sort((a, b) => a.distance - b.distance);
+  const hospitaisOrdenados = hospitais.sort((a, b) => a.distance - b.distance);
  
   return (
     <div className={styles.container}>
@@ -92,9 +92,10 @@ useEffect(() => {
       </div>
       </div>
       <ul>
-        {hospitais.map((hospital) => (
+        {hospitaisOrdenados.map((hospital) => (
           <li key={hospital.place_id}>
-            <strong>{hospital.name} | <LocalizacaoIcon/>{hospital.distance}</strong>
+            <strong>{hospital.name} | <LocalizacaoIcon/>{
+              hospital.distance>= 1000 ? `${((hospital.distance) / 1000).toFixed(2)} km` : `${Math.round(hospital.distance)} m`}</strong>
             <p>{hospital.vicinity}</p>
             <Link to='/' ><button onClick={() => toggleDados(hospital.name, hospital.geometry.location.lat(), hospital.geometry.location.lng())}>Definir Destino</button></Link>
             <hr />

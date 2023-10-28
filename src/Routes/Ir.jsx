@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext, useMemo, useCallback } from "react";
+import {useState, useEffect, useContext} from "react";
 import { DadosParaRotaContext } from "../Context/DadosParaRota";
 import {
   GoogleMap,
@@ -357,7 +357,7 @@ export default function Ir(){
                     <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
                       <div>
                         <p>{name}</p>
-                        <button onClick={calculateRoute}>Gerar Rota{dados.nome}</button>
+                        <button onClick={calculateRoute}>Gerar Rota</button>
                       </div>
                     </InfoWindowF>
                   ) : null}
