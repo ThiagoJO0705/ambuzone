@@ -62,7 +62,7 @@ ul{
         border-radius: 5rem;
         width: 10rem;
         font-size: 1.2rem;
-        box-shadow: 3px 3px black;
+        box-shadow: 3px 3px rgba(0, 0, 0, 0.514);
     }
     & hr{
         width: 100%;
