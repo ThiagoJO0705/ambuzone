@@ -272,6 +272,7 @@ const mapStyles = [
       ];
  
 export default function Ir(){
+    document.title = 'Ir'
     console.log('Renderizando aba Ir')
     const {dados} = useContext(DadosParaRotaContext)
     const [directionsResponse, setDirectionsResponse] = useState(null)

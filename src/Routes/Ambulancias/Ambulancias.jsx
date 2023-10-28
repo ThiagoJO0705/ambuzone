@@ -1,7 +1,9 @@
 import style from "./Ambulancias.module.css"
 
 export default function Ambulancias(){
-
+  
+  document.title = 'Ambulâncias'
+  
   return(
     <>
       <div className={style.container}>

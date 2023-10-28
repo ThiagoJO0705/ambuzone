@@ -2,7 +2,10 @@
   import style from './Diagnostico.module.css'
   // import { useEffect } from 'react';
 
+  
+
   export default function Diagnostico(){
+      document.title = 'Diagnostico'
       const [dados, setDados] = useState(''); // Defina o estado inicial aqui
       const [spanErroDadosVisible, setSpanErroDadosVisible] = useState(false);
       const [sintomas, setSintomas] = useState("")

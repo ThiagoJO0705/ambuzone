@@ -5,7 +5,11 @@ import styles from './Hospitais.module.css'
 import {Link} from "react-router-dom";
 import { DadosParaRotaContext } from "../../Context/DadosParaRota";
 
+
+
 export default function Hospitais() {
+document.title = 'Hospitais'
+
 const [userLocation, setUserLocation] = useState(null);
 const {toggleDados} = useContext(DadosParaRotaContext)
  

@@ -9,7 +9,9 @@ import {AiFillQuestionCircle as PerguntasFrequentesIcon} from 'react-icons/ai'
 import {TbArrowBadgeRightFilled as SetaIcon} from 'react-icons/tb'
 
 
+
 export default function Perfil(){
+    document.tile = 'Perfil'
     return(
         <main>
             <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
