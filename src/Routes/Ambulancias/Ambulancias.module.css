@@ -8,6 +8,10 @@
 .boxazul{
     grid-row: 1/1;
     height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
 }
 
 .boxbranca {
@@ -25,17 +29,6 @@
 
 }
 
-.boxazul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.logo{
-    position: relative;
-    left: 10rem;
-}
 
 .ocorrencias,
 .ambdisponiveis,

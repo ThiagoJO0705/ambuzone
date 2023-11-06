@@ -7,6 +7,7 @@ import {PiSirenFill as MinhasOcorrenciasIcon} from 'react-icons/pi'
 import {BiSolidMessageAdd as MinhasConversasIcon} from 'react-icons/bi'
 import {AiFillQuestionCircle as PerguntasFrequentesIcon} from 'react-icons/ai'
 import {TbArrowBadgeRightFilled as SetaIcon} from 'react-icons/tb'
+import "../../../public/img/ambuzone.png"
 
 
 
@@ -17,7 +18,7 @@ export default function Perfil(){
             <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
             <div className={style.conta}>
                 <div className={style.logo}>
-                    <img src="../../assets/ambuzonelogo.png" alt="" />
+                    <img src="../../../public/img/ambuzone.png" alt="" />
                 </div>
                 <hr/>
                 <div className={style.informacoesPessoais}>

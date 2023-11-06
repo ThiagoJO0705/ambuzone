@@ -1,4 +1,5 @@
 import style from "./Ambulancias.module.css"
+import "../../../public/img/ambuzone.png"
 
 export default function Ambulancias(){
   
@@ -8,9 +9,7 @@ export default function Ambulancias(){
     <>
       <div className={style.container}>
         <div className={style.boxazul}>
-        <div className={style.logo}>
-          <img src="../../public/img/ambuzonelogo.png" alt="" />
-        </div>
+          <img src="../../../public/img/ambuzone.png" alt="" />
         </div>
         <div className={style.boxbranca}>
           <div className={style.ambativas}>

@@ -1,5 +1,6 @@
 import {useState, useEffect, useContext} from "react";
 import { DadosParaRotaContext } from "../Context/DadosParaRota";
+import "../../public/img/sua-localizacao-icon.png"
 import {
   GoogleMap,
   InfoWindowF,
@@ -347,7 +348,7 @@ export default function Ir(){
                   position={userLocation}
                   onClick={() => handleActiveMarker(id)}
                   icon={{
-                    url: "../img/sua-localizacao-icon.png",
+                    url: "../../public/img/sua-localizacao-icon.png",
                     scaledSize: { width: 40, height: 40 }
                   }}
                   animation={window.google.maps.Animation.DROP}
