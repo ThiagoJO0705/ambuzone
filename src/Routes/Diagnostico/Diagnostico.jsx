@@ -150,7 +150,7 @@
                             <span className={spanErroRiscoVisible ? style.errospan : style.spanescondido}>Selecione o nivél de risco!</span>
                           </div>
 
-                          <button type='submit'>Enviar</button>
+                          <button className={style.btn} type='submit'>Enviar</button>
                       </form>
                   </div>
               </section>

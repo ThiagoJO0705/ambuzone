@@ -113,7 +113,7 @@ input[type="radio"] + label {
     background-color: red;
 }
 
-button {
+.btn {
     width: 160px;
     height: 30px;
     border-radius: 50px;
