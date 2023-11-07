@@ -1,12 +1,11 @@
-import "./Login.scss"
+import "./Cadastro.scss"
 import "../../../public/img/ambuzone.png"
-import { Link } from 'react-router-dom';
 
-export default function Login(){
-    document.title = "Login"
+export default function Cadastro(){
+    document.title = "Cadastro"
     return(
         <>
-        <div className="container-login">
+        <div className="container-cadastro">
             <div className="box-azul">
                 <img src="../../../public/img/ambuzone.png" alt="Logo Ambuzone" />
                 <p>Bem Vindo(a) !</p>
@@ -14,7 +13,7 @@ export default function Login(){
 
             <div className="box-branca">
                 <div className="titulo">
-                    <p>Login</p>
+                    <p>Cadastro</p>
                 </div>
                 <form className="form">
                     <div className="usuario">
@@ -27,19 +26,8 @@ export default function Login(){
                         <input type="password" name="senha" placeholder="Digite sua senha" />
                     </div>
 
-                    <div className="manter-conectado">
-                        <div className="checkbox">
-                            <input type="checkbox" name="conectado"/>
-                            <label htmlFor="conectado">Manter conectado</label>
-                        </div>
-                        <p>Esqueci a senha</p>
-                    </div>
-
                     <button type="submit" className="entrar">Entrar</button>
 
-                    <div className="frase-cadastro">
-                        <p>Ainda não tem uma conta ? <Link to="/cadastro" className="cadastro">Cadastre-se agora</Link></p>
-                    </div>
                 </form>
             </div>
         </div>
