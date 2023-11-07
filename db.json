@@ -1,0 +1,18 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nome": "Alexandre Carlos de Jesus",
+            "usuario": "alecarlosjesus",
+            "email": "profalexandre.jesus@fiap.com.br",
+            "senha": "ale123fiap"
+        },
+        {
+            "id": 2,
+            "nome": "Luis Carlos de Souza Silva",
+            "usuario": "lsilva",
+            "email": "lsilva@fiap.com.br",
+            "senha": "luis123fiap"
+        }
+    ] 
+}
