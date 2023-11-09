@@ -7,6 +7,7 @@ html {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	grid-template-rows: repeat(auto, 100px);
+    overflow-y: auto;
 
     .box-azul{
         grid-template-columns: 1/13;
@@ -36,7 +37,7 @@ html {
         flex-direction: column;
         gap: 5rem;
         align-items: center;
-        height: 82vh;
+        height: 95vh;
         border-top-right-radius: 3rem;
         border-top-left-radius: 3rem;
         padding: 2rem;
@@ -95,7 +96,7 @@ html {
             .nome {
                 display: flex;
                 flex-direction: column;
-                padding: 1rem 2.5rem 2rem 2.5rem;
+                padding: 1rem 2.5rem 1rem 2.5rem;
                 justify-content: center;
 
             }
@@ -103,14 +104,14 @@ html {
             .usuario {
                 display: flex;
                 flex-direction: column;
-                padding: 0 2.5rem 2.5rem 2.5rem;
+                padding: 0 2.5rem 1rem 2.5rem;
                 justify-content: center;
             }
 
             .email {
                 display: flex;
                 flex-direction: column;
-                padding: 0 2.5rem 2.5rem 2.5rem;
+                padding: 0 2.5rem 1rem 2.5rem;
                 justify-content: center;
             }
 
@@ -119,7 +120,7 @@ html {
                 flex-direction: column;
                 padding: 2.5rem;
                 justify-content: center;
-                padding: 0 2.5rem 2.5rem 2.5rem;
+                padding: 0 2.5rem 1rem 2.5rem;
 
             }
 
@@ -132,7 +133,7 @@ html {
                 font-size: 2rem;
                 font-weight: bold;
                 box-shadow: 0.3rem 0.3rem rgba(102, 102, 102, 0.562);
-                margin-top: 2rem;
+                margin-top: 0rem;
                 cursor: pointer;
 
                 &:hover{
