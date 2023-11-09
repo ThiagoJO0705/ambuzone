@@ -1,9 +1,12 @@
 import "./Cadastro.scss"
 import "../../../public/img/ambuzone.png"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function Cadastro(){
     document.title = "Cadastro";
+
+    const navigate = useNavigate()
 
     const [spanErroNomeVisible, setSpanErroNomeVisible] = useState(false);
     const [spanErroUsuarioVisible, setSpanErroUsuarioVisible] = useState(false);
@@ -152,6 +155,8 @@ export default function Cadastro(){
             })
             .then((response)=> console.log("Dados cadastrados com sucesso - STATUS CODE : " + response.status))
             .catch(error=> console.log(error));
+
+            navigate("/login")
         }
      
         }

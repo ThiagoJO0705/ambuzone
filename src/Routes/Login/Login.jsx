@@ -1,9 +1,25 @@
 import "./Login.scss"
 import "../../../public/img/ambuzone.png"
 import { Link } from 'react-router-dom';
+import { useState } from "react";
 
 export default function Login(){
     document.title = "Login"
+
+
+    const [usuario, setUsuario] = useState({
+        usuario: "",
+        senha: ""
+    })
+
+    const handleUsuario = (e)=>{
+        const { name, value } = e.target;
+
+        });
+    }
+
+
+
     return(
         <>
         <div className="container-login">
