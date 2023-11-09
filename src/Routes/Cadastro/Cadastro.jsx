@@ -1,142 +1,159 @@
 import "./Cadastro.scss"
 import "../../../public/img/ambuzone.png"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Cadastro(){
-    document.title = "Cadastro"
+    document.title = "Cadastro";
 
     const [spanErroNomeVisible, setSpanErroNomeVisible] = useState(false);
     const [spanErroUsuarioVisible, setSpanErroUsuarioVisible] = useState(false);
     const [spanErroEmailVisible, setSpanErroEmailVisible] = useState(false);
     const [spanErroSenhaVisible, setSpanErroSenhaVisible] = useState(false);
-    const [spanErroSenhaNumeroVisible, setSpanErroSenhaNumeroVisible] = useState(false)
-
-
+    const [spanErroSenhaNumeroVisible, setSpanErroSenhaNumeroVisible] = useState(
+      false
+    );
+  
     // Adicionando o id automaticamente
-    let id;
-    
-    fetch("http://localhost:5001/usuarios")
-    .then((response)=> response.json())
-    .then((response)=>{
-        id = response[response.length-1].id+1
-    })
-    .catch(error=> console.log(error));
-    
+    const [id, setId] = useState(null);
+  
+    useEffect(() => {
+      fetch("http://localhost:5001/usuarios")
+        .then((response) => response.json())
+        .then((response) => {
+          setId(response[response.length - 1].id + 1);
+        })
+        .catch((error) => console.log(error));
+    }, []); // Adicione um array de dependências vazio para garantir que este efeito seja executado apenas uma vez
+  
     const [cadastro, setCadastro] = useState({
-        id:id,
-        nome: "",
-        usuario: "",
-        email: "",
-        senha: ""
-    })
+      id: id,
+      nome: "",
+      usuario: "",
+      email: "",
+      senha: "",
+    });
 
     
-    const handleChange = (e)=>{
-        const emailRegex = new RegExp(
-            // Exemplo de email valido -> usuario123@host.com.br
-            /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z{2,}$]/
-        );
-        //Destructuring
-      //Setando os dados diretamente no objeto atravé de SPREAD
-        
-
-        // if (name === "nome" && cadastro.nome.length < 3){
-        //     // while (cadastro.nome.length < 3){
-        //         setSpanErroNomeVisible(true);
-        //     // }
-        //     console.log(cadastro)
-        // } else {
-            //     setSpanErroNomeVisible(false)
-            // }
-            
-            // if (name === 'usuario' && value.length < 3){
-                //     setSpanErroUsuarioVisible(true);
-                //     console.log(cadastro)
-                // } else {
-                    //     setSpanErroUsuarioVisible(false)
-                    // } 
-                    // if (emailRegex.test(cadastro.email)){
-                        //     setSpanErroEmailVisible(true);
-                        //     console.log(cadastro)
-                        // } else {
-                            //     setSpanErroEmailVisible(false)
-                            // }
-                            
-                            // if (name === 'senha' && value.length < 5){
-                                //     setSpanErroSenhaVisible(true);
-                                //     console.log(cadastro)
-                                // } 
-                                // else if (!(senha in"0123456789" )) {
-                                    //     setSpanErroSenhaNumeroVisible(true)
-                                    // }
-                                    // else {
-                                        //     setSpanErroSenhaVisible(false)
-        //     setSpanErroSenhaNumeroVisible(false)
-        // }
-        
-    }
+    const isValidEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    };
     
-    
-    
-    
-    const handleName = (e)=>{
-        const {name,value} = e.target;
-        setCadastro({...cadastro,[name]:value});
-
-        if (cadastro.nome.length < 2){
-            setSpanErroNomeVisible(true)
-            console.log(cadastro.nome)
-        }
-        else {
-            setSpanErroNomeVisible(false)
-        }
-    }
-    
-
-      const handleUser = (e)=>{
-        const {name,value} = e.target;
-        setCadastro({...cadastro,[name]:value});
-
-        if (cadastro.usuario.length < 2){
-            setSpanErroUsuarioVisible(true)
-            console.log(cadastro.usuario)
-        }
-        else {
-            setSpanErroUsuarioVisible(false)
-        }
-      }
-
-
-      const handlePassword = (e)=>{
-        const {name,value} = e.target;
-        setCadastro({...cadastro,[name]:value});
-
-        if (cadastro.senha.length < 5){
-            setSpanErroSenhaVisible(true)
-            console.log(cadastro.senha)
-        }
-        else if (!/\d/.test(cadastro.senha)){
-            setSpanErroSenhaNumeroVisible(true)
-        }
-        else {
-            setSpanErroSenhaVisible(false)
-            setSpanErroSenhaNumeroVisible(false)
-        }
-      }
+    const handleName = (e) => {
+        const { name, value } = e.target;
+        setCadastro((prevCadastro) => {
+          const updatedCadastro = { ...prevCadastro, [name]: value };
+          if (updatedCadastro.nome && updatedCadastro.nome.length < 3) {
+            setSpanErroNomeVisible(true);
+          } else {
+            setSpanErroNomeVisible(false);
+          }
+          console.log(updatedCadastro.nome); // Move o console.log aqui
+          return updatedCadastro;
+        });
+      };
+      
+      const handleUser = (e) => {
+        const { name, value } = e.target;
+        setCadastro((prevCadastro) => {
+          const updatedCadastro = { ...prevCadastro, [name]: value };
+          if (updatedCadastro.usuario && updatedCadastro.usuario.length < 3) {
+            setSpanErroUsuarioVisible(true);
+          } else {
+            setSpanErroUsuarioVisible(false);
+          }
+          console.log(updatedCadastro.usuario); // Move o console.log aqui
+          return updatedCadastro;
+        });
+      };
+      
+      const handleEmail = (e) => {
+        const { name, value } = e.target;
+        setCadastro((prevCadastro) => {
+          const updatedCadastro = { ...prevCadastro, [name]: value };
+          if (
+            updatedCadastro.email &&
+            !isValidEmail(updatedCadastro.email)
+          ) {
+            setSpanErroEmailVisible(true);
+          } else {
+            setSpanErroEmailVisible(false);
+          }
+          return updatedCadastro;
+        });
+      };
+      
+      const handlePassword = (e) => {
+        const { name, value } = e.target;
+        setCadastro((prevCadastro) => {
+          const updatedCadastro = { ...prevCadastro, [name]: value };
+          if (updatedCadastro.senha && updatedCadastro.senha.length < 5) {
+            setSpanErroSenhaVisible(true);
+          } else {
+            setSpanErroSenhaVisible(false);
+          }
+          if (
+            updatedCadastro.senha &&
+            !/\d/.test(updatedCadastro.senha)
+          ) {
+            setSpanErroSenhaNumeroVisible(true);
+          } else {
+            setSpanErroSenhaNumeroVisible(false);
+          }
+          console.log(updatedCadastro.senha); // Move o console.log aqui
+          return updatedCadastro;
+        });
+      };
     
 
       const handleSubmit = (e) =>{
-        e.preventDefault();
+        if (cadastro.nome.length < 3 || cadastro.usuario.length < 3 || !isValidEmail(cadastro.email) || cadastro.senha.length < 5 || !/\d/.test(cadastro.senha)){
+            e.preventDefault();
+
+            if (cadastro.nome.length < 3) {
+                setSpanErroNomeVisible(true)
+            } else {
+                setSpanErroNomeVisible(false)
+            }  
+            
+            if (cadastro.usuario.length < 3){
+                setSpanErroUsuarioVisible(true)
+            } else {
+                setSpanErroUsuarioVisible(false)
+            } 
+
+            if (!isValidEmail(cadastro.email)) {
+                setSpanErroEmailVisible(true)
+            } else {
+                setSpanErroEmailVisible(false)
+            } 
+
+            if (cadastro.senha.length < 5) {
+                setSpanErroSenhaVisible(true)
+            } else {
+                setSpanErroSenhaVisible(false)
+            } 
+
+            if (!/\d/.test(cadastro.senha)) {
+                setSpanErroSenhaNumeroVisible(true)
+            } else {
+                setSpanErroSenhaNumeroVisible(false)
+            } 
+        } 
+
+
+        else {
+            fetch("http://localhost:5001/usuarios",{
+              method:"POST",
+              headers:{
+                "Content-Type":"application/json"
+              },
+              body: JSON.stringify(cadastro)
+            })
+            .then((response)=> console.log("Dados cadastrados com sucesso - STATUS CODE : " + response.status))
+            .catch(error=> console.log(error));
+        }
      
-          fetch("http://localhost:5001/usuarios",{
-            method:"POST",
-            headers:{
-              "Content-Type":"application/json"
-            },
-            body: JSON.stringify(cadastro)
-          })
-          .then((response)=> console.log("Dados cadastrados com sucesso - STATUS CODE : " + response.status))
-          .catch(error=> console.log(error));
         }
     
 
@@ -167,7 +184,7 @@ export default function Cadastro(){
 
                     <div className="email">
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" placeholder="Digite seu email" value={cadastro.email} onChange={handleChange} />
+                        <input type="email" name="email" placeholder="Digite seu email" value={cadastro.email} onChange={handleEmail}/>
                         <span className={spanErroEmailVisible ? "errospan" : "spanescondido"}>Email inválido</span>
                     </div>
 
