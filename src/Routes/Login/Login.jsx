@@ -5,29 +5,31 @@ import { useState } from "react";
 
 
 export default function Login(){
-    document.title = "Login"
-
-
+    document.title = "Login";
 
     const navigate = useNavigate();
 
-    //USE-STATE QUE VAI ARMAZENAR OS DADOS DO FORM.
-    const [login,setLogin] = useState({
+    const [login, setLogin] = useState({
         usuario: "",
         senha: ""
-    })
+    });
 
-    //PREENCHIMENTO DO FORM
+    const [manterConectado, setManterConectado] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setLogin((prevLogin) => {
             const updatedLogin = { ...prevLogin, [name]: value };
             console.log(updatedLogin);
-            return updatedLogin; // Adicione esta linha para retornar o novo estado
+            return updatedLogin;
         });
     };
 
-    const handleSubmit = async (e)=>{
+    const handleCheckboxChange = () => {
+        setManterConectado(!manterConectado);
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         let users;
@@ -35,40 +37,36 @@ export default function Login(){
         try {
             const response = await fetch("http://localhost:5001/usuarios");
             users = await response.json();
-            
+
         } catch (error) {
-            alert("Ocorreu um erro no processamento da sua solicitação!");    
+            alert("Ocorreu um erro no processamento da sua solicitação!");
         }
 
-        //REALIZANDO A VALIDAÇÃO DO USUÁRIO.
         for (let x = 0; x < users.length; x++) {
-                user = users[x];
-            //REALIZANDO A COMPARAÇÃO DE FATO!
-            if(user.email == login.usuario && user.senha == login.senha || user.usuario == login.usuario && user.senha == login.senha  ){
-                alert("Login realizado com SUCESSO!")
+            user = users[x];
 
-                //Criando a autenticação:
-                //Criando o token do usuário
-                const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2)
+            if (user.email === login.usuario && user.senha === login.senha || user.usuario === login.usuario && user.senha === login.senha) {
+                alert("Login realizado com SUCESSO!");
+
+                const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
                 console.log(tokenUser);
-                
-                //Criando o SessionStorage
-                sessionStorage.setItem("token-user",tokenUser);
-                //Adicionando os dados do Usuário na sessão:
-                sessionStorage.setItem("data-user", JSON.stringify(user));
 
-                //REDIRECIONANDO O USUÁRIO PARA A PÁGINA HOME!
+                const storage = manterConectado ? localStorage : sessionStorage;
+
+                storage.setItem("token-user", tokenUser);
+                storage.setItem("data-user", JSON.stringify(user));
+
                 navigate("/");
-                return; 
+                return;
             }
         }
 
-        alert("Login ou senha incorretos!")
+        alert("Login ou senha incorretos!");
         setLogin({
-            usuario:"",
-            senha:""
+            usuario: "",
+            senha: ""
         });
-    }
+    };
 
     return(
         <>
@@ -95,7 +93,7 @@ export default function Login(){
 
                     <div className="manter-conectado">
                         <div className="checkbox">
-                            <input type="checkbox" name="conectado"/>
+                            <input type="checkbox" name="conectado" checked={manterConectado} onChange={handleCheckboxChange}/>
                             <label htmlFor="conectado">Manter conectado</label>
                         </div>
                         <p>Esqueci a senha</p>
