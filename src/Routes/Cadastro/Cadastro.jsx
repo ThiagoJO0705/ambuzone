@@ -153,15 +153,23 @@ export default function Cadastro(){
               },
               body: JSON.stringify(cadastro)
             })
-            .then((response)=> console.log("Dados cadastrados com sucesso - STATUS CODE : " + response.status))
-            .catch(error=> console.log(error));
-
+            .then((response)=> {
+              console.log("Dados cadastrados com sucesso - STATUS CODE : " + response.status)
+            })
+            .catch((error)=> { 
+              alert(`Occoreu um erro: ${error}`)
+              setCadastro({
+                nome: "",
+                usuario: "",
+                email: "",
+                senha: "",
+              })
+            });
+            alert("Usuário Cadastrado !")
             navigate("/login")
         }
      
         }
-    
-
 
     return(
         <>
@@ -176,26 +184,26 @@ export default function Cadastro(){
                 </div>
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="nome">
-                        <label htmlFor="nome">Nome</label>
-                        <input type="text" name="nome" placeholder="Digite seu nome completo" value={cadastro.nome} onChange={handleName} />
+                        <label htmlFor="nome">Nome*</label>
+                        <input className={spanErroNomeVisible ? "erroinput" : cadastro.nome.length >= 3 ? "certoinput" : ''} type="text" name="nome" placeholder="Digite seu nome completo" value={cadastro.nome} onChange={handleName} />
                         <span className={spanErroNomeVisible ? "errospan" : "spanescondido"}>Mínimo de 3 caracteres !</span>
                     </div>
 
                     <div className="usuario">
-                        <label htmlFor="usuario">Usuário</label>
-                        <input type="text" name="usuario" placeholder="Digite um nome de usuário" value={cadastro.usuario} onChange={handleUser} />
+                        <label htmlFor="usuario">Usuário*</label>
+                        <input className={spanErroUsuarioVisible ? "erroinput" : cadastro.usuario.length >= 3 ? "certoinput" : ''} type="text" name="usuario" placeholder="Digite um nome de usuário" value={cadastro.usuario} onChange={handleUser} />
                         <span className={spanErroUsuarioVisible ? "errospan" : "spanescondido"}>Mínimo de 3 caracteres !</span>
                     </div>
 
                     <div className="email">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" placeholder="Digite seu email" value={cadastro.email} onChange={handleEmail}/>
+                        <label htmlFor="email">Email*</label>
+                        <input className={spanErroEmailVisible ? "erroinput" : isValidEmail(cadastro.email) ? "certoinput" : ''} type="email" name="email" placeholder="Digite seu email" value={cadastro.email} onChange={handleEmail}/>
                         <span className={spanErroEmailVisible ? "errospan" : "spanescondido"}>Email inválido</span>
                     </div>
 
                     <div className="senha">
-                        <label htmlFor="senha">Senha</label>
-                        <input type="password" name="senha" placeholder="Digite sua senha" value={cadastro.senha} onChange={handlePassword} />
+                        <label htmlFor="senha">Senha*</label>
+                        <input className={spanErroSenhaVisible || spanErroSenhaNumeroVisible ? "erroinput" : cadastro.senha.length >= 5 && /\d/.test(cadastro.senha) ? "certoinput" : ''} type="password" name="senha" placeholder="Digite sua senha" value={cadastro.senha} onChange={handlePassword} />
                         <span className={spanErroSenhaVisible ? "errospan" : "spanescondido"}>Mínimo de 5 caracteres !</span>
                         <span className={spanErroSenhaNumeroVisible ? "errospan" : "spanescondido"}>Precisa conter 1 número no mínimo</span>
                     </div>
