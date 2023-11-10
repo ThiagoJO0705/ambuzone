@@ -12,20 +12,20 @@ export default function Login(){
     const navigate = useNavigate();
 
     //USE-STATE QUE VAI ARMAZENAR OS DADOS DO FORM.
-    const [usuario,setUsuario] = useState({
-        email: "",
+    const [login,setLogin] = useState({
         usuario: "",
         senha: ""
     })
 
     //PREENCHIMENTO DO FORM
-    const handleChange = (e)=>{
-        //DESTRUCTURING NOS CAMPOS DO FORM(NAME,INPUT).
-        const {name,value} = e.target;
-        //PREENCHENDO O USE-STATE COM OS VALORES DA DESESTRUTURAÇÃO, UTILIZANDO O OPERADOR SPREAD.
-        setUsuario({...usuario,[name]:value});
-        console.log(usuario)
-    }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setLogin((prevLogin) => {
+            const updatedLogin = { ...prevLogin, [name]: value };
+            console.log(updatedLogin);
+            return updatedLogin; // Adicione esta linha para retornar o novo estado
+        });
+    };
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -44,7 +44,7 @@ export default function Login(){
         for (let x = 0; x < users.length; x++) {
                 user = users[x];
             //REALIZANDO A COMPARAÇÃO DE FATO!
-            if(user.email == usuario.email && user.senha == usuario.senha){
+            if(user.email == login.usuario && user.senha == login.senha || user.usuario == login.usuario && user.senha == login.senha  ){
                 alert("Login realizado com SUCESSO!")
 
                 //Criando a autenticação:
@@ -64,8 +64,8 @@ export default function Login(){
         }
 
         alert("Login ou senha incorretos!")
-        setUsuario({
-            email:"",
+        setLogin({
+            usuario:"",
             senha:""
         });
     }
@@ -85,12 +85,12 @@ export default function Login(){
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="usuario">
                         <label htmlFor="usuario">Usuário</label>
-                        <input type="text" name="usuario" placeholder="Digite o email ou usuário" value={usuario.usuario} onChange={handleChange} />
+                        <input type="text" name="usuario" placeholder="Digite o email ou usuário" value={login.usuario} onChange={handleChange} />
                     </div>
 
                     <div className="senha">
                         <label htmlFor="senha">Senha</label>
-                        <input type="password" name="senha" placeholder="Digite sua senha"  value={usuario.senha} onChange={handleChange}/>
+                        <input type="password" name="senha" placeholder="Digite sua senha"  value={login.senha} onChange={handleChange}/>
                     </div>
 
                     <div className="manter-conectado">
