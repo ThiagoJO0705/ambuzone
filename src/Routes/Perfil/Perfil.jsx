@@ -8,13 +8,26 @@ import {BiSolidMessageAdd as MinhasConversasIcon} from 'react-icons/bi'
 import {AiFillQuestionCircle as PerguntasFrequentesIcon} from 'react-icons/ai'
 import {TbArrowBadgeRightFilled as SetaIcon} from 'react-icons/tb'
 import "../../../public/img/ambuzone.png"
+import { useEffect, useState } from 'react'
 
 
 
 export default function Perfil(){
     document.tile = 'Perfil'
+    const [storedData, setStoredData] = useState({
+        nome: "",
+        email: "",
+    })
+    useEffect(() => {
+        const dataFromStorage =
+          JSON.parse(sessionStorage.getItem("data-user")) ||
+          JSON.parse(localStorage.getItem("data-user"));
+    
+        if (dataFromStorage) {
+          setStoredData(dataFromStorage);
+        }
+      }, [])
 
-    getItem
 
     if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
         
@@ -28,8 +41,8 @@ export default function Perfil(){
                     <hr/>
                     <div className={style.informacoesPessoais}>
                         <div className={style.fotoPerfil}><DadosPessoaisIcon/></div>
-                        <p className={style.nomeUsuario}>Fulano da Silva</p>
-                        <p className={style.emailUsuario}>emailgenerico@gmail.com</p>
+                        <p className={style.nomeUsuario}>{storedData.nome}</p>
+                        <p className={style.emailUsuario}>{storedData.email}</p>
                     </div>
                 </div>
                 <div className={style.containerOpcoesPerfil}>

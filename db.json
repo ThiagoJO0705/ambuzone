@@ -20,6 +20,13 @@
       "usuario": "GuiBeretta",
       "email": "guivanunes7@gmail.com",
       "senha": "g010703"
+    },
+    {
+      "id": 4,
+      "nome": "Gabriel Vicente",
+      "usuario": "ggnunes7",
+      "email": "gabrielvanunes@gmail.com",
+      "senha": "g100206"
     }
   ]
 }
