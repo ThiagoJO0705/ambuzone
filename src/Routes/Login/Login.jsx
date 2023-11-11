@@ -9,6 +9,8 @@ export default function Login(){
 
     const navigate = useNavigate();
 
+    const [spanErroVisible, setSpanErroVisible] = useState(false)
+
     const [login, setLogin] = useState({
         usuario: "",
         senha: ""
@@ -61,7 +63,7 @@ export default function Login(){
             }
         }
 
-        alert("Login ou senha incorretos!");
+        setSpanErroVisible(true)
         setLogin({
             usuario: "",
             senha: ""
@@ -83,12 +85,12 @@ export default function Login(){
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="usuario">
                         <label htmlFor="usuario">Usuário</label>
-                        <input type="text" name="usuario" placeholder="Digite o email ou usuário" value={login.usuario} onChange={handleChange} />
+                        <input className={spanErroVisible ? "erroinput" : ""} type="text" name="usuario" placeholder="Digite o email ou usuário" value={login.usuario} onChange={handleChange} />
                     </div>
 
                     <div className="senha">
                         <label htmlFor="senha">Senha</label>
-                        <input type="password" name="senha" placeholder="Digite sua senha"  value={login.senha} onChange={handleChange}/>
+                        <input className={spanErroVisible ? "erroinput" : ""} type="password" name="senha" placeholder="Digite sua senha"  value={login.senha} onChange={handleChange}/>
                     </div>
 
                     <div className="manter-conectado">
@@ -98,7 +100,9 @@ export default function Login(){
                         </div>
                         <p>Esqueci a senha</p>
                     </div>
-
+                            <div className="box-span">
+                                <span className={spanErroVisible ? "errospan" : "spanescondido"}>Usuário ou senha incorretos!</span>
+                            </div>
                     <button type="submit" className="entrar">Entrar</button>
 
                     <div className="frase-cadastro">

@@ -160,6 +160,38 @@ html {
                 }
             }
 
+            .box-span {
+                max-width: 45rem;
+                width: 100%;
+                font-size: 14px;
+                display: flex;
+                justify-content: center;
+            }
+
+
+            .input-erro {
+                border: 2px solid red;
+            }
+
+            .errospan {
+                color: red;
+                display: block;
+                font-size: 18px;
+            
+            }
+
+            .spanescondido {
+                font-size: 14px;
+                display: none;
+            }
+
+            .erroinput {
+                border: 3px solid red;
+            }
+            
+            .certoinput {
+                border: 3px solid green;
+            }
             
 
             @media screen and (max-width:440px) {
