@@ -13,6 +13,13 @@
       "email": "lsilva@fiap.com.br",
       "senha": "luis123fiap",
       "id": 2
+    },
+    {
+      "id": 3,
+      "nome": "Guilherme Vicente",
+      "usuario": "GuiBeretta",
+      "email": "guivanunes7@gmail.com",
+      "senha": "g010703"
     }
   ]
 }

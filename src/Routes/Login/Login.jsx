@@ -53,11 +53,15 @@ export default function Login(){
                 const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
                 console.log(tokenUser);
 
+                const userWithoutPassword = { ...user };
+                delete userWithoutPassword.senha;
+    
                 const storage = manterConectado ? localStorage : sessionStorage;
-
+    
+                // Armazenar no sessionStorage
                 storage.setItem("token-user", tokenUser);
-                storage.setItem("data-user", JSON.stringify(user));
-
+                storage.setItem("data-user", JSON.stringify(userWithoutPassword));
+    
                 navigate("/");
                 return;
             }

@@ -8,6 +8,7 @@ import {
   useLoadScript,
   DirectionsRenderer,
 } from "@react-google-maps/api";
+
  
 
 const mapStyles = [
@@ -327,51 +328,51 @@ export default function Ir(){
         setDirectionsResponse(results)
       }
       if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
-    return(
-        <>
-      <div className="container">
-        <div style={{ height: "100vh", width: "100%" }}>
-          {isLoaded ? (
-            <GoogleMap
-              center={userLocation}
-              zoom={15}
-              onClick={() => setActiveMarker(null)}
-              mapContainerStyle={{ width: "100%", height: "100vh" }}
-              options={{
-                disableDefaultUI: true, // Isso remove os controles padrão
-                styles: mapStyles // Aplicar as estilizações
-              }}
-            >
-              {markers.map(({ id, name }) => (
-                <MarkerF
-                  key={id}
-                  position={userLocation}
-                  onClick={() => handleActiveMarker(id)}
-                  icon={{
-                    url: "../../public/img/sua-localizacao-icon.png",
-                    scaledSize: { width: 40, height: 40 }
+        return(
+            <>
+          <div className="container">
+            <div style={{ height: "100vh", width: "100%" }}>
+              {isLoaded ? (
+                <GoogleMap
+                  center={userLocation}
+                  zoom={15}
+                  onClick={() => setActiveMarker(null)}
+                  mapContainerStyle={{ width: "100%", height: "100vh" }}
+                  options={{
+                    disableDefaultUI: true, // Isso remove os controles padrão
+                    styles: mapStyles // Aplicar as estilizações
                   }}
-                  animation={window.google.maps.Animation.DROP}
                 >
-                  {activeMarker === id ? (
-                    <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
-                      <div>
-                        <p>{name}</p>
-                        <button onClick={calculateRoute}>Gerar Rota</button>
-                      </div>
-                    </InfoWindowF>
-                  ) : null}
-                </MarkerF>
-              ))}
-              {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-          </GoogleMap>
-          ) : null}
-        </div>
-      </div>
-    </>
-  );
+                  {markers.map(({ id, name }) => (
+                    <MarkerF
+                      key={id}
+                      position={userLocation}
+                      onClick={() => handleActiveMarker(id)}
+                      icon={{
+                        url: "../../public/img/sua-localizacao-icon.png",
+                        scaledSize: { width: 40, height: 40 }
+                      }}
+                      animation={window.google.maps.Animation.DROP}
+                    >
+                      {activeMarker === id ? (
+                        <InfoWindowF onCloseClick={() => setActiveMarker(null)}>
+                          <div>
+                            <p>{name}</p>
+                            <button onClick={calculateRoute}>Gerar Rota</button>
+                          </div>
+                        </InfoWindowF>
+                      ) : null}
+                    </MarkerF>
+                  ))}
+                  {directionsResponse && (
+                <DirectionsRenderer directions={directionsResponse} />
+              )}
+              </GoogleMap>
+              ) : null}
+            </div>
+          </div>
+        </>
+      );
 } else {
   window.location = "/login";
 }}

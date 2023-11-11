@@ -97,6 +97,8 @@
         }
     }
 
+    if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
+
       return(
           <>
               <section className={style.container}>
@@ -156,4 +158,7 @@
               </section>
           </>
       )
+    } else {
+      window.location = "/login"
+    }
   }

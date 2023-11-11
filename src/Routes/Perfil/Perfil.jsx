@@ -13,75 +13,83 @@ import "../../../public/img/ambuzone.png"
 
 export default function Perfil(){
     document.tile = 'Perfil'
-    return(
-        <main>
-            <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
-            <div className={style.conta}>
-                <div className={style.logo}>
-                    <img src="../../../public/img/ambuzone.png" alt="" />
-                </div>
-                <hr/>
-                <div className={style.informacoesPessoais}>
-                    <div className={style.fotoPerfil}><DadosPessoaisIcon/></div>
-                    <p className={style.nomeUsuario}>Fulano da Silva</p>
-                    <p className={style.emailUsuario}>emailgenerico@gmail.com</p>
-                </div>
-            </div>
-            <div className={style.containerOpcoesPerfil}>
-                <h1>Minha Conta</h1>
-                <div className={style.opcoesPerfil}>
-                    <div className={style.conteudoOpcoesPerfil}>
-                        <div className={style.descricaoConteudoOpcoesPerfil}>
-                            <DadosPessoaisIcon/>
-                            <p>Dados Pessoais</p>
-                        </div>
-                        <Link className='seta'><SetaIcon/></Link>
+
+    getItem
+
+    if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
+        
+        return(
+            <main>
+                <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
+                <div className={style.conta}>
+                    <div className={style.logo}>
+                        <img src="../../../public/img/ambuzone.png" alt="" />
                     </div>
-                    <hr />
-                </div>
-                <div className={style.opcoesPerfil}>
-                    <div className={style.conteudoOpcoesPerfil}>
-                        <div className={style.descricaoConteudoOpcoesPerfil}>
-                            <NotificacoesIcon/>
-                            <p>Notificações</p>
-                        </div>
-                        <Link className='seta'><SetaIcon/></Link>
+                    <hr/>
+                    <div className={style.informacoesPessoais}>
+                        <div className={style.fotoPerfil}><DadosPessoaisIcon/></div>
+                        <p className={style.nomeUsuario}>Fulano da Silva</p>
+                        <p className={style.emailUsuario}>emailgenerico@gmail.com</p>
                     </div>
-                    <hr />
                 </div>
-                <div className={style.opcoesPerfil}>
-                    <div className={style.conteudoOpcoesPerfil}>
-                        <div className={style.descricaoConteudoOpcoesPerfil}>
-                            <MinhasOcorrenciasIcon/>
-                            <p>Minhas Ocorrências</p>
+                <div className={style.containerOpcoesPerfil}>
+                    <h1>Minha Conta</h1>
+                    <div className={style.opcoesPerfil}>
+                        <div className={style.conteudoOpcoesPerfil}>
+                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                                <DadosPessoaisIcon/>
+                                <p>Dados Pessoais</p>
+                            </div>
+                            <Link className='seta'><SetaIcon/></Link>
                         </div>
-                        <Link className='seta'><SetaIcon/></Link>
+                        <hr />
                     </div>
-                    <hr />
-                </div>
-                <div className={style.opcoesPerfil}>
-                    <div className={style.conteudoOpcoesPerfil}>
-                        <div className={style.descricaoConteudoOpcoesPerfil}>
-                            <MinhasConversasIcon/>
-                            <p>Minhas Conversas</p>
+                    <div className={style.opcoesPerfil}>
+                        <div className={style.conteudoOpcoesPerfil}>
+                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                                <NotificacoesIcon/>
+                                <p>Notificações</p>
+                            </div>
+                            <Link className='seta'><SetaIcon/></Link>
                         </div>
-                        <Link className='seta'><SetaIcon/></Link>
+                        <hr />
                     </div>
-                    <hr />
-                </div>
-                <h1>Ajuda</h1>
-                <div className={style.opcoesPerfil}>
-                    <div className={style.conteudoOpcoesPerfil}>
-                        <div className={style.descricaoConteudoOpcoesPerfil}>
-                            <PerguntasFrequentesIcon/>
-                            <p>Dados Pessoais</p>
+                    <div className={style.opcoesPerfil}>
+                        <div className={style.conteudoOpcoesPerfil}>
+                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                                <MinhasOcorrenciasIcon/>
+                                <p>Minhas Ocorrências</p>
+                            </div>
+                            <Link className='seta'><SetaIcon/></Link>
                         </div>
-                        <Link className='seta'><SetaIcon/></Link>
+                        <hr />
                     </div>
-                    <hr />
+                    <div className={style.opcoesPerfil}>
+                        <div className={style.conteudoOpcoesPerfil}>
+                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                                <MinhasConversasIcon/>
+                                <p>Minhas Conversas</p>
+                            </div>
+                            <Link className='seta'><SetaIcon/></Link>
+                        </div>
+                        <hr />
+                    </div>
+                    <h1>Ajuda</h1>
+                    <div className={style.opcoesPerfil}>
+                        <div className={style.conteudoOpcoesPerfil}>
+                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                                <PerguntasFrequentesIcon/>
+                                <p>Dados Pessoais</p>
+                            </div>
+                            <Link className='seta'><SetaIcon/></Link>
+                        </div>
+                        <hr />
+                    </div>
                 </div>
-            </div>
-        </main>
-    )
+            </main>
+        )
+    } else {
+        window.location = "/login"
+    }
 }
 
