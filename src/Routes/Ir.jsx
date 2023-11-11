@@ -326,7 +326,7 @@ export default function Ir(){
         })
         setDirectionsResponse(results)
       }
-      
+      if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
     return(
         <>
       <div className="container">
@@ -372,4 +372,6 @@ export default function Ir(){
       </div>
     </>
   );
-}
+} else {
+  window.location = "/login";
+}}
