@@ -45,6 +45,23 @@
       "procedimento": "Primeiros socorros, imobilização",
       "obs": "",
       "risco": "Urgente"
+    },
+    {
+      "id": 3,
+      "dados": "Hiago Nunes, 29 anos",
+      "sintomas": "Desmaio seguido por convulsão",
+      "procedimento": "Primeiros socorros, imobilização",
+      "obs": "",
+      "risco": "Urgente"
+    },
+    {
+      "id": 4,
+      "dados": "Ilda, 60 anos",
+      "sintomas": "Parada cardíaca",
+      "procedimento": "Primeiros socorros, reanimação",
+      "obs": "",
+      "risco": "Emergência"
     }
+
   ]
 }

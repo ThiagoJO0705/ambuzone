@@ -18,20 +18,23 @@ export default function Perfil(){
         nome: "",
         email: "",
     })
-
-    // const [openLogout, setOpenLogout] = useState(false)
-
-
+    
+    
     useEffect(() => {
         const dataFromStorage =
-          JSON.parse(sessionStorage.getItem("data-user")) ||
-          JSON.parse(localStorage.getItem("data-user"));
-    
+        JSON.parse(sessionStorage.getItem("data-user")) ||
+        JSON.parse(localStorage.getItem("data-user"));
+        
         if (dataFromStorage) {
-          setStoredData(dataFromStorage);
+            setStoredData(dataFromStorage);
         }
-      }, [])
-
+    }, [])
+    
+    const handleClick = ()=> {
+        sessionStorage.removeItem("token-user") || localStorage.removeItem("token-user")
+        sessionStorage.removeItem("data-user") || localStorage.removeItem("data-user")
+        window.location.reload();
+    }
 
 
 
@@ -39,7 +42,9 @@ export default function Perfil(){
         
         return(
             <main>
-                <div className="configuracoes"><SettingsIcon /></div>
+                <div className="configuracoes" >
+                    <SettingsIcon />
+                </div>
                 <div className="conta">
                     <div className="logo">
                         <img src="../../../public/img/ambuzone.png" alt="Ambuzone Logo" />
@@ -103,6 +108,9 @@ export default function Perfil(){
                             <Link className='seta'><SetaIcon/></Link>
                         </div>
                         <hr />
+                        <div className="logout"  onClick={handleClick}>
+                            <h1>Sair</h1>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -111,4 +119,3 @@ export default function Perfil(){
         window.location = "/login"
     }
 }
-

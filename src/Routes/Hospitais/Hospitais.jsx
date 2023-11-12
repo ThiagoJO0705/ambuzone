@@ -1,7 +1,7 @@
+import "./Hospitais.scss";
 import {useState, useEffect, useContext} from "react";
 import {FaLocationDot as LocalizacaoIcon} from 'react-icons/fa6'
 import haversine from 'haversine-distance';
-import styles from './Hospitais.module.css'
 import {Link} from "react-router-dom";
 import { DadosParaRotaContext } from "../../Context/DadosParaRota";
 
@@ -87,13 +87,13 @@ useEffect(() => {
  
   if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
     return (
-      <div className={styles.container}>
-        <div className={styles.cabecalho}>
-        <div className={styles.titulo}>
+      <div className="container">
+        <div className="cabecalho">
+        <div className="titulo">
         <p><LocalizacaoIcon/> São Paulo</p>
         <h1>Hospitais Próximos</h1>
         </div>
-        <div className={styles.raioDeBusca}>
+        <div className="raioDeBusca">
         </div>
         </div>
         <ul>

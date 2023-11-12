@@ -9,7 +9,6 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 
- 
 
 const mapStyles = [
     {
@@ -323,7 +322,7 @@ export default function Ir(){
         const results = await directionsService.route({
           origin: userLocation,
           destination: hospitalDefinidoCoords,
-          travelMode: google.maps.TravelMode.DRIVING,
+          travelMode: window.google.maps.TravelMode.DRIVING,
         })
         setDirectionsResponse(results)
       }
@@ -331,13 +330,13 @@ export default function Ir(){
         return(
             <>
           <div className="container">
-            <div style={{ height: "100vh", width: "100%" }}>
+            <div style={{ height: "100vh", width: "100vw" }}>
               {isLoaded ? (
                 <GoogleMap
                   center={userLocation}
                   zoom={15}
                   onClick={() => setActiveMarker(null)}
-                  mapContainerStyle={{ width: "100%", height: "100vh" }}
+                  mapContainerStyle={{ width: "100%", height: "100vh", overflow: "hidden" }}
                   options={{
                     disableDefaultUI: true, // Isso remove os controles padrão
                     styles: mapStyles // Aplicar as estilizações
