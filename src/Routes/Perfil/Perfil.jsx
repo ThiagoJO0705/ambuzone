@@ -1,4 +1,4 @@
-import style from './Perfil.module.css'
+import "./Perfil.scss"
 import {IoMdSettings as SettingsIcon} from 'react-icons/io' 
 import { Link } from 'react-router-dom'
 import {BiSolidUser as DadosPessoaisIcon} from 'react-icons/bi'
@@ -18,6 +18,10 @@ export default function Perfil(){
         nome: "",
         email: "",
     })
+
+    // const [openLogout, setOpenLogout] = useState(false)
+
+
     useEffect(() => {
         const dataFromStorage =
           JSON.parse(sessionStorage.getItem("data-user")) ||
@@ -29,27 +33,29 @@ export default function Perfil(){
       }, [])
 
 
+
+
     if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
         
         return(
             <main>
-                <div className={style.configuracoes}><Link to='/Perfil'><SettingsIcon/></Link></div>
-                <div className={style.conta}>
-                    <div className={style.logo}>
-                        <img src="../../../public/img/ambuzone.png" alt="" />
+                <div className="configuracoes"><SettingsIcon /></div>
+                <div className="conta">
+                    <div className="logo">
+                        <img src="../../../public/img/ambuzone.png" alt="Ambuzone Logo" />
                     </div>
                     <hr/>
-                    <div className={style.informacoesPessoais}>
-                        <div className={style.fotoPerfil}><DadosPessoaisIcon/></div>
-                        <p className={style.nomeUsuario}>{storedData.nome}</p>
-                        <p className={style.emailUsuario}>{storedData.email}</p>
+                    <div className="informacoesPessoais">
+                        <div className="fotoPerfil"><DadosPessoaisIcon/></div>
+                        <p className="nomeUsuario">{storedData.nome}</p>
+                        <p className="emailUsuario">{storedData.email}</p>
                     </div>
                 </div>
-                <div className={style.containerOpcoesPerfil}>
+                <div className="containerOpcoesPerfil">
                     <h1>Minha Conta</h1>
-                    <div className={style.opcoesPerfil}>
-                        <div className={style.conteudoOpcoesPerfil}>
-                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                    <div className="opcoesPerfil">
+                        <div className="conteudoOpcoesPerfil">
+                            <div className="descricaoConteudoOpcoesPerfil">
                                 <DadosPessoaisIcon/>
                                 <p>Dados Pessoais</p>
                             </div>
@@ -57,9 +63,9 @@ export default function Perfil(){
                         </div>
                         <hr />
                     </div>
-                    <div className={style.opcoesPerfil}>
-                        <div className={style.conteudoOpcoesPerfil}>
-                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                    <div className="opcoesPerfil">
+                        <div className="conteudoOpcoesPerfil">
+                            <div className="descricaoConteudoOpcoesPerfil">
                                 <NotificacoesIcon/>
                                 <p>Notificações</p>
                             </div>
@@ -67,9 +73,9 @@ export default function Perfil(){
                         </div>
                         <hr />
                     </div>
-                    <div className={style.opcoesPerfil}>
-                        <div className={style.conteudoOpcoesPerfil}>
-                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                    <div className="opcoesPerfil">
+                        <div className="conteudoOpcoesPerfil">
+                            <div className="descricaoConteudoOpcoesPerfil">
                                 <MinhasOcorrenciasIcon/>
                                 <p>Minhas Ocorrências</p>
                             </div>
@@ -77,9 +83,9 @@ export default function Perfil(){
                         </div>
                         <hr />
                     </div>
-                    <div className={style.opcoesPerfil}>
-                        <div className={style.conteudoOpcoesPerfil}>
-                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                    <div className="opcoesPerfil">
+                        <div className="conteudoOpcoesPerfil">
+                            <div className="descricaoConteudoOpcoesPerfil">
                                 <MinhasConversasIcon/>
                                 <p>Minhas Conversas</p>
                             </div>
@@ -88,9 +94,9 @@ export default function Perfil(){
                         <hr />
                     </div>
                     <h1>Ajuda</h1>
-                    <div className={style.opcoesPerfil}>
-                        <div className={style.conteudoOpcoesPerfil}>
-                            <div className={style.descricaoConteudoOpcoesPerfil}>
+                    <div className="opcoesPerfil">
+                        <div className="conteudoOpcoesPerfil">
+                            <div className="descricaoConteudoOpcoesPerfil">
                                 <PerguntasFrequentesIcon/>
                                 <p>Dados Pessoais</p>
                             </div>
