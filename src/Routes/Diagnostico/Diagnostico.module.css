@@ -16,10 +16,10 @@ body {
 }
 
 .form {
-    margin-top: -100px;
+    margin-top: -50px;
     background-color: #020D3F;
     max-width: 270px;
-    height: 70vh;
+    height: 90vh;
     border-radius: 50px;
     border: 1.5px solid white;
     display: flex;
@@ -113,7 +113,7 @@ input[type="radio"] + label {
     background-color: red;
 }
 
-button {
+.btn {
     width: 160px;
     height: 30px;
     border-radius: 50px;

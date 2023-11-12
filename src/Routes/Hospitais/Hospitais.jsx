@@ -1,7 +1,7 @@
+import "./Hospitais.scss";
 import {useState, useEffect, useContext} from "react";
 import {FaLocationDot as LocalizacaoIcon} from 'react-icons/fa6'
 import haversine from 'haversine-distance';
-import styles from './Hospitais.module.css'
 import {Link} from "react-router-dom";
 import { DadosParaRotaContext } from "../../Context/DadosParaRota";
 
@@ -85,28 +85,31 @@ useEffect(() => {
  
   const hospitaisOrdenados = hospitais.sort((a, b) => a.distance - b.distance);
  
-  return (
-    <div className={styles.container}>
-      <div className={styles.cabecalho}>
-      <div className={styles.titulo}>
-      <p><LocalizacaoIcon/> São Paulo</p>
-      <h1>Hospitais Próximos</h1>
+  if(sessionStorage.getItem("token-user") || localStorage.getItem("token-user")){
+    return (
+      <div className="container">
+        <div className="cabecalho">
+        <div className="titulo">
+        <p><LocalizacaoIcon/> São Paulo</p>
+        <h1>Hospitais Próximos</h1>
+        </div>
+        <div className="raioDeBusca">
+        </div>
+        </div>
+        <ul>
+          {hospitaisOrdenados.map((hospital) => (
+            <li key={hospital.place_id}>
+              <strong>{hospital.name} | <LocalizacaoIcon/>{
+                hospital.distance>= 1000 ? `${((hospital.distance) / 1000).toFixed(2)} km` : `${Math.round(hospital.distance)} m`}</strong>
+              <p>{hospital.vicinity}</p>
+              <Link to='/' ><button onClick={() => toggleDados(hospital.name, hospital.geometry.location.lat(), hospital.geometry.location.lng())}>Definir Destino</button></Link>
+              <hr />
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className={styles.raioDeBusca}>
-      </div>
-      </div>
-      <ul>
-        {hospitaisOrdenados.map((hospital) => (
-          <li key={hospital.place_id}>
-            <strong>{hospital.name} | <LocalizacaoIcon/>{
-              hospital.distance>= 1000 ? `${((hospital.distance) / 1000).toFixed(2)} km` : `${Math.round(hospital.distance)} m`}</strong>
-            <p>{hospital.vicinity}</p>
-            <Link to='/' ><button onClick={() => toggleDados(hospital.name, hospital.geometry.location.lat(), hospital.geometry.location.lng())}>Definir Destino</button></Link>
-            <hr />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
- 
+    );
+  } else {
+    window.location = "/login"
+  }
+} 

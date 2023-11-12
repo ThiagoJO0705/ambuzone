@@ -11,6 +11,7 @@ import Ambulancias from './Routes/Ambulancias/Ambulancias.jsx'
 import Diagnostico from './Routes/Diagnostico/Diagnostico.jsx'
 import Perfil from './Routes/Perfil/Perfil.jsx'
 import Login from "./Routes/Login/Login.jsx"
+import Cadastro from "./Routes/Cadastro/Cadastro.jsx"
 
 //BLOCO DAS ROTAS
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     {path:"/diagnostico", element:<Diagnostico/>},
     {path:"/perfil", element:<Perfil/>},
     {path:"/login", element:<Login/>},
+    {path:"/cadastro", element:<Cadastro />},
    ]
  },
 ]);
