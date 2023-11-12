@@ -1,5 +1,5 @@
 import "./Login.scss"
-import "../../img/ambuzone.png"
+import logo from "../../../public/img/ambuzone.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
 
@@ -78,7 +78,7 @@ export default function Login(){
         <>
         <div className="container-login">
             <div className="box-azul">
-                <img src="../../img/ambuzone.png" alt="Logo Ambuzone" />
+                <img src={logo} alt="Logo Ambuzone" />
                 <p>Bem Vindo(a) !</p>
             </div>
 

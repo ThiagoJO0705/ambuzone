@@ -1,5 +1,5 @@
 import "./Ambulancias.scss"
-import "../../img/ambuzone.png"
+import logo from "../../../public/img/ambuzone.png"
  
 export default function Ambulancias(){
  
@@ -10,7 +10,7 @@ export default function Ambulancias(){
       <>
         <div className="container">
           <div className="boxazul">
-            <img src="../../img/ambuzone.png" alt="" />
+            <img src={logo} alt="" />
           </div>
           <div className="boxbranca">
             <div className="ambativas">

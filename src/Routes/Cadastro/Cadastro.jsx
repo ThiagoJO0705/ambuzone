@@ -1,5 +1,5 @@
 import "./Cadastro.scss"
-import "../../img/ambuzone.png"
+import logo from "../../../public/img/ambuzone.png"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
@@ -175,7 +175,7 @@ export default function Cadastro(){
         <>
         <div className="container-cadastro">
             <div className="box-azul">
-                <img src="../../img/ambuzone.png" alt="Logo Ambuzone" />
+                <img src={logo} alt="Logo Ambuzone" />
             </div>
 
             <div className="box-branca">

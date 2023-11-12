@@ -7,7 +7,7 @@ import {PiSirenFill as MinhasOcorrenciasIcon} from 'react-icons/pi'
 import {BiSolidMessageAdd as MinhasConversasIcon} from 'react-icons/bi'
 import {AiFillQuestionCircle as PerguntasFrequentesIcon} from 'react-icons/ai'
 import {TbArrowBadgeRightFilled as SetaIcon} from 'react-icons/tb'
-import "../../img/ambuzone.png"
+import logo from "../../../public/img/ambuzone.png"
 import { useEffect, useState } from 'react'
 
 
@@ -47,7 +47,7 @@ export default function Perfil(){
                 </div>
                 <div className="conta">
                     <div className="logo">
-                        <img src="../../img/ambuzone.png" alt="Ambuzone Logo" />
+                        <img src={logo} alt="Ambuzone Logo" />
                     </div>
                     <hr/>
                     <div className="informacoesPessoais">
