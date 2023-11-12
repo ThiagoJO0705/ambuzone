@@ -3,6 +3,7 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 	grid-template-rows: repeat(auto, 100px);
     overflow-y: scroll;
+    overflow-x: hidden;
     .boxazul{
         grid-row: 1/1;
         height: 150px;

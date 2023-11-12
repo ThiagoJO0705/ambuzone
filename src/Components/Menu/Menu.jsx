@@ -1,4 +1,4 @@
-import style from './Menu.module.css'
+import './Menu.scss'
 import {BiSolidLocationPlus as IrIcon} from 'react-icons/bi'
 import {LuStethoscope as HospitaisIcon} from 'react-icons/lu'
 import {PiSirenDuotone as AmbulanciasIcon} from 'react-icons/pi'
@@ -16,7 +16,7 @@ export default function Menu(){
         <nav>
 
 
-                 <div className={style.menuLinks}> 
+                 <div className="menuLinks"> 
                  <Link to='/' className={rotaAtual.pathname == "/" ? "active" : ""}>
                      <IrIcon/>
                      <p>Ir</p>
