@@ -1,7 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-	grid-template-rows: repeat(auto, 100px);
+    grid-template-rows: repeat(auto, 100px);
     overflow-y: scroll;
     overflow-x: hidden;
     .boxazul{
@@ -26,8 +26,7 @@
         height: 500px;
         // margin: 10px;
         max-width: 100vw;
-        
-    
+
         .ocorrencias {
             background-color: #020d3f;
             max-width: 230px;
@@ -120,6 +119,4 @@
         
     }
 }
-
-
 

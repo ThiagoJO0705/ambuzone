@@ -7,7 +7,7 @@ import {CgProfile as PerfilIcon} from 'react-icons/cg'
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Menu(){
-    
+
     const rotaAtual = useLocation();
 
 
@@ -31,11 +31,11 @@ export default function Menu(){
                  </Link>
                  <Link to='/diagnostico' className={rotaAtual.pathname == "/diagnostico" ? "active" : ""}>
                      <DiagnosticoIcon/>
-                     <p>Diagnóstico</p>    
+                     <p>Diagnóstico</p>
                  </Link>
                  <Link to='/perfil' className={rotaAtual.pathname == "/perfil" ? "active" : ""}>
                      <PerfilIcon/>
-                     <p>Perfil</p>    
+                     <p>Perfil</p>
                  </Link> 
              </div>
         </nav>
