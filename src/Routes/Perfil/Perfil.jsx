@@ -7,7 +7,7 @@ import {PiSirenFill as MinhasOcorrenciasIcon} from 'react-icons/pi'
 import {BiSolidMessageAdd as MinhasConversasIcon} from 'react-icons/bi'
 import {AiFillQuestionCircle as PerguntasFrequentesIcon} from 'react-icons/ai'
 import {TbArrowBadgeRightFilled as SetaIcon} from 'react-icons/tb'
-import "../../../public/img/ambuzone.png"
+import "../../img/ambuzone.png"
 import { useEffect, useState } from 'react'
 
 
