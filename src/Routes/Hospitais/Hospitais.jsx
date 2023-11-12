@@ -1,4 +1,4 @@
-import "./hospitais.scss";
+import "./Hospitais.scss";
 import {useState, useEffect, useContext} from "react";
 import {FaLocationDot as LocalizacaoIcon} from 'react-icons/fa6'
 import haversine from 'haversine-distance';

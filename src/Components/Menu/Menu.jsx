@@ -1,4 +1,4 @@
-import './menu.scss'
+import './Menu.scss'
 import {BiSolidLocationPlus as IrIcon} from 'react-icons/bi'
 import {LuStethoscope as HospitaisIcon} from 'react-icons/lu'
 import {PiSirenDuotone as AmbulanciasIcon} from 'react-icons/pi'
