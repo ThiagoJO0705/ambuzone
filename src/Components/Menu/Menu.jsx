@@ -1,4 +1,4 @@
-import style from './Menu.module.css'
+import './Menu.scss'
 import {BiSolidLocationPlus as IrIcon} from 'react-icons/bi'
 import {LuStethoscope as HospitaisIcon} from 'react-icons/lu'
 import {PiSirenDuotone as AmbulanciasIcon} from 'react-icons/pi'
@@ -7,7 +7,7 @@ import {CgProfile as PerfilIcon} from 'react-icons/cg'
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Menu(){
-    
+
     const rotaAtual = useLocation();
 
 
@@ -16,7 +16,7 @@ export default function Menu(){
         <nav>
 
 
-                 <div className={style.menuLinks}> 
+                 <div className="menuLinks"> 
                  <Link to='/' className={rotaAtual.pathname == "/" ? "active" : ""}>
                      <IrIcon/>
                      <p>Ir</p>
@@ -31,11 +31,11 @@ export default function Menu(){
                  </Link>
                  <Link to='/diagnostico' className={rotaAtual.pathname == "/diagnostico" ? "active" : ""}>
                      <DiagnosticoIcon/>
-                     <p>Diagnóstico</p>    
+                     <p>Diagnóstico</p>
                  </Link>
                  <Link to='/perfil' className={rotaAtual.pathname == "/perfil" ? "active" : ""}>
                      <PerfilIcon/>
-                     <p>Perfil</p>    
+                     <p>Perfil</p>
                  </Link> 
              </div>
         </nav>
