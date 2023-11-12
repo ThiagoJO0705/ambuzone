@@ -21,7 +21,7 @@ html{
     position: fixed;
     bottom: 0px;
     border-top: 2px solid white;
-    & a{
+    a{
         color: white;
         text-decoration: none;
         font-size: 2rem;
@@ -29,15 +29,15 @@ html{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        & p{
+        p{
             font-size: 1rem;
         }
     }
-}
 
-a .active {
-    background-color: #3a3a3a;
-    padding: 2rem;
-    width: 20rem;
-    color: red;
+    .active {
+        background-color: #3a3a3a;
+        color: white;
+        width: 70px;
+        border-radius: 50px;
+    }
 }
