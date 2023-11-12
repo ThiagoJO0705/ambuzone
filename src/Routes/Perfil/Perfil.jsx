@@ -1,4 +1,4 @@
-import "./Perfil.scss"
+import "./perfil.scss"
 import {IoMdSettings as SettingsIcon} from 'react-icons/io' 
 import { Link } from 'react-router-dom'
 import {BiSolidUser as DadosPessoaisIcon} from 'react-icons/bi'

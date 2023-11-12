@@ -1,4 +1,4 @@
-import "./Login.scss"
+import "./login.scss"
 import "../../../public/img/ambuzone.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from "react";
