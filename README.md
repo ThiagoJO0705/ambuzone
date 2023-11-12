@@ -1,8 +1,28 @@
-# React + Vite
+# Ambuzone
+O site foi feito para ser a interface de um aplicativo. É altamente recomendável que utilizem o viewport de um smartphone.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Integrantes
+Nenhum participante é de outra turma. Todos são da 1ESPF
+- Guilherme Rocha Bianchini - RM97974
+- Nikolas Rodrigues Moura dos Santos - RM551566 
+- Pedro Henrique Pedrosa Tavares - RM97877
+- Rodrigo Brasileiro - RM98952
+- Thiago Jardim de Oliveira - RM551624
 
-Currently, two official plugins are available:
+## Usuários
+É possível cadastrar um novo usuário, caso seja necessário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Usuário              | Email                                | Senha           |
+| ------------------- | ------------------------------------ | --------------- |
+| alecarlosjesus      | profalexandre.jesus@fiap.com.br      | ale123fiap      |
+| lsilva              | lsilva@fiap.com.br                   | luis123fiap     |
+| oberleitner-allen   | allen@fiap.com.br                    | allen123fiap    |
+| fabiocabrini        | proffabio.cabrini@fiap.com.br        | fabio123fiap    |
+| pauloviniccius      | profpaulo.vieira@fiap.com.br         | paulo123fiap    |
+| danrodrigues        | profdanilo.elias@fiap.com.br         | danilo123fiap   |
+| patmatsuda          | profpatricia.matsuda@fiap.com.br     | patricia123fiap |
+| GuiBeretta          | guivanunes7@gmail.com                | g010703         |
+| ggnunes7            | gabrielvanunes@gmail.com             | g100206         |
+
+## Rotas
+Para gerar uma rota é necessário definir o destino de um hospital. Após isso, clique no ícone da sua localização e gere a rota.
