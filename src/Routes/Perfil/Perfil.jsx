@@ -47,7 +47,7 @@ export default function Perfil(){
                 </div>
                 <div className="conta">
                     <div className="logo">
-                        <img src="../../../public/img/ambuzone.png" alt="Ambuzone Logo" />
+                        <img src="../../img/ambuzone.png" alt="Ambuzone Logo" />
                     </div>
                     <hr/>
                     <div className="informacoesPessoais">

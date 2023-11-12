@@ -348,7 +348,7 @@ export default function Ir(){
                       position={userLocation}
                       onClick={() => handleActiveMarker(id)}
                       icon={{
-                        url: "../../public/img/sua-localizacao-icon.png",
+                        url: "../img/sua-localizacao-icon.png",
                         scaledSize: { width: 40, height: 40 }
                       }}
                       animation={window.google.maps.Animation.DROP}

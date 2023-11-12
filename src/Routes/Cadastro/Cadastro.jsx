@@ -175,7 +175,7 @@ export default function Cadastro(){
         <>
         <div className="container-cadastro">
             <div className="box-azul">
-                <img src="../../../public/img/ambuzone.png" alt="Logo Ambuzone" />
+                <img src="../../img/ambuzone.png" alt="Logo Ambuzone" />
             </div>
 
             <div className="box-branca">

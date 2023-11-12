@@ -78,7 +78,7 @@ export default function Login(){
         <>
         <div className="container-login">
             <div className="box-azul">
-                <img src="../../../public/img/ambuzone.png" alt="Logo Ambuzone" />
+                <img src="../../img/ambuzone.png" alt="Logo Ambuzone" />
                 <p>Bem Vindo(a) !</p>
             </div>
 

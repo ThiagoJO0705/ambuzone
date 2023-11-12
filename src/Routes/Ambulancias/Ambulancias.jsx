@@ -10,7 +10,7 @@ export default function Ambulancias(){
       <>
         <div className="container">
           <div className="boxazul">
-            <img src="../../../public/img/ambuzone.png" alt="" />
+            <img src="../../img/ambuzone.png" alt="" />
           </div>
           <div className="boxbranca">
             <div className="ambativas">
