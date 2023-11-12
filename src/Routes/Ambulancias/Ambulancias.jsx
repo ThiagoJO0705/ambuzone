@@ -1,3 +1,4 @@
+import "./Ambulancias.scss"
 import "../../../public/img/ambuzone.png"
  
 export default function Ambulancias(){
