@@ -1,4 +1,4 @@
-import "./Cadastro.scss"
+import "./cadastro.scss"
 import "../../../public/img/ambuzone.png"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";

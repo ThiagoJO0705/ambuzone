@@ -1,14 +1,16 @@
+@import "../../styles/variaveis";
+
 html{
   overflow-y: auto;
 }
 
 .container{
-  background-color: #020D3F;
+  background-color: $bg-color_principal;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto 1fr;
   gap: 10px;
-  color: white;
+  color: $txt-color_white;
   margin-bottom: 4.5rem;
   overflow-y: auto;
   max-height: 100vh;
@@ -38,8 +40,8 @@ html{
       grid-column: 1/13;
       grid-row: 2;
       border-radius: 2rem 2rem 0 0;
-      background-color: white;
-      color: black;
+      background-color: $bg-color_secundaria;
+      color: $txt-color_black;
       overflow-y: auto;
       
         li{
@@ -52,8 +54,8 @@ html{
           font-size: 1.3rem;
       }
         button{
-          background-color: #020D3F;
-          color: white;
+          background-color: $bg-color_principal;
+          color: $txt-color_white;
           border-radius: 5rem;
           width: 10rem;
           font-size: 1.2rem;
