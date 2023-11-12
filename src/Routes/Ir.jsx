@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from "react";
 import { DadosParaRotaContext } from "../Context/DadosParaRota";
-import localizaco from "../../public/img/sua-localizacao-icon-png"
+import localizaco from "../../public/img/sua-localizacao-icon.png"
 import {
   GoogleMap,
   InfoWindowF,
